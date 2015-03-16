@@ -1,0 +1,447 @@
+[
+    {
+        "name": "gregwar/captcha",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Gregwar/Captcha",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Gregwar/Captcha.git",
+            "reference": "c5357cb6f6d2c09f70ed1712382d44af6eae0865",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/c5357cb6f6d2c09f70ed1712382d44af6eae0865",
+            "reference": "c5357cb6f6d2c09f70ed1712382d44af6eae0865",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-gd": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2015-01-03 12:41:56",
+        "type": "captcha",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Gregwar\\Captcha": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Grégoire Passault",
+                "email": "g.passault@gmail.com",
+                "homepage": "http://www.gregwar.com/"
+            },
+            {
+                "name": "Jeremy Livingston",
+                "email": "jeremy.j.livingston@gmail.com"
+            }
+        ],
+        "description": "Captcha generator",
+        "homepage": "https://github.com/Gregwar/Captcha",
+        "keywords": [
+            "bot",
+            "captcha",
+            "spam"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "time": "2012-12-21 11:40:51",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Psr\\Log\\": ""
+            }
+        },
+        "notification-url": "/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "katzgrau/klogger",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/katzgrau/klogger.git",
+            "reference": "46cdd92a9b4a8443120cc955bf831450cb274813",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/katzgrau/klogger/zipball/46cdd92a9b4a8443120cc955bf831450cb274813",
+            "reference": "46cdd92a9b4a8443120cc955bf831450cb274813",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3",
+            "psr/log": "1.0.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.0.*"
+        },
+        "time": "2014-03-20 02:36:36",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Katzgrau\\KLogger\\": "src/"
+            },
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dan Horrigan",
+                "email": "dan@dhorrigan.com",
+                "homepage": "http://dhorrigan.com",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Kenny Katzgrau",
+                "email": "katzgrau@gmail.com"
+            }
+        ],
+        "description": "A Simple Logging Class",
+        "keywords": [
+            "logging"
+        ]
+    },
+    {
+        "name": "intervention/image",
+        "version": "2.0.17",
+        "version_normalized": "2.0.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Intervention/image.git",
+            "reference": "b91b0d63488f9a295815af082f987e4773d2843c",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Intervention/image/zipball/b91b0d63488f9a295815af082f987e4773d2843c",
+            "reference": "b91b0d63488f9a295815af082f987e4773d2843c",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-fileinfo": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.2",
+            "phpunit/phpunit": "3.*"
+        },
+        "suggest": {
+            "ext-gd": "to use GD library based image processing.",
+            "ext-imagick": "to use Imagick based image processing.",
+            "intervention/imagecache": "Caching extension for the Intervention Image library"
+        },
+        "time": "2014-12-29 11:58:35",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Intervention\\Image\\": "src/Intervention/Image"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oliver Vogel",
+                "email": "oliver@olivervogel.net",
+                "homepage": "http://olivervogel.net/"
+            }
+        ],
+        "description": "Image handling and manipulation library with support for Laravel integration",
+        "homepage": "http://image.intervention.io/",
+        "keywords": [
+            "gd",
+            "image",
+            "imagick",
+            "laravel",
+            "thumbnail",
+            "watermark"
+        ]
+    },
+    {
+        "name": "nette/utils",
+        "version": "v2.2.4",
+        "version_normalized": "2.2.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nette/utils.git",
+            "reference": "063460f08b9ca38b1609a15ed95d18bfaa6e3b90",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nette/utils/zipball/063460f08b9ca38b1609a15ed95d18bfaa6e3b90",
+            "reference": "063460f08b9ca38b1609a15ed95d18bfaa6e3b90",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.1"
+        },
+        "conflict": {
+            "nette/nette": "<2.2"
+        },
+        "require-dev": {
+            "nette/tester": "~1.0"
+        },
+        "suggest": {
+            "ext-gd": "to use Image",
+            "ext-iconv": "to use Strings::webalize() and toAscii()",
+            "ext-mbstring": "to use Strings::lower() etc..."
+        },
+        "time": "2014-12-30 09:55:38",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "http://davidgrudl.com"
+            },
+            {
+                "name": "Nette Community",
+                "homepage": "http://nette.org/contributors"
+            }
+        ],
+        "description": "Nette Utility Classes",
+        "homepage": "http://nette.org"
+    },
+    {
+        "name": "nette/mail",
+        "version": "v2.2.3",
+        "version_normalized": "2.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nette/mail.git",
+            "reference": "7a2e7d8012a636bb4658aa01064792981fcdd2c6",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nette/mail/zipball/7a2e7d8012a636bb4658aa01064792981fcdd2c6",
+            "reference": "7a2e7d8012a636bb4658aa01064792981fcdd2c6",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-iconv": "*",
+            "nette/utils": "~2.2",
+            "php": ">=5.3.1"
+        },
+        "conflict": {
+            "nette/nette": "<2.2"
+        },
+        "require-dev": {
+            "nette/tester": "~1.0"
+        },
+        "suggest": {
+            "ext-fileinfo": "to detect type of attached files"
+        },
+        "time": "2014-10-15 20:45:25",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "http://davidgrudl.com"
+            },
+            {
+                "name": "Nette Community",
+                "homepage": "http://nette.org/contributors"
+            }
+        ],
+        "description": "Nette Mail: Sending E-mails",
+        "homepage": "http://nette.org"
+    },
+    {
+        "name": "mtdowling/cron-expression",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mtdowling/cron-expression.git",
+            "reference": "fd92e883195e5dfa77720b1868cf084b08be4412",
+            "mirrors": [
+                {
+                    "url": "/%package%/%normalizedUrl%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/fd92e883195e5dfa77720b1868cf084b08be4412",
+            "reference": "fd92e883195e5dfa77720b1868cf084b08be4412",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*"
+        },
+        "time": "2015-01-11 23:07:46",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Cron": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+        "keywords": [
+            "cron",
+            "schedule"
+        ]
+    }
+]

@@ -1,0 +1,13 @@
+{
+    "name": "peter.wang/myframework",
+    "require": {
+        "intervention/image": "2.*",
+        "nette/mail": "*",
+        "mtdowling/cron-expression": "1.0.*",
+        "katzgrau/klogger": "1.0.*"
+    },
+    "repositories": [
+        {"type": "composer", "url": "http://pkg.phpcomposer.com/repo/packagist/"},
+        {"packagist": false}
+    ]
+}

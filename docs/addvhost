@@ -1,0 +1,16 @@
+#!/bin/bash
+block="<Directory $2>
+    AllowOverride All
+    Require all granted
+</Directory>
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot $2
+    ServerName $1
+</VirtualHost>
+"
+sudo rm -rf /etc/apache2/sites-available/$1.conf
+sudo rm -rf /etc/apache2/sites-enabled/$1.conf
+sudo sh -c "echo '$block' >> /etc/apache2/sites-available/$1.conf"
+sudo a2ensite "$1"
+sudo service apache2 restart

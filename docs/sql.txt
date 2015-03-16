@@ -1,0 +1,771 @@
+-- Adminer 4.0.3 MySQL dump
+
+SET NAMES utf8;
+SET foreign_key_checks = 0;
+SET time_zone = '+08:00';
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `zl_access`;
+CREATE TABLE `zl_access` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) DEFAULT NULL,
+  `node` varchar(50) DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
+  `ctime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_access` (`id`, `role_id`, `node`, `mtime`, `ctime`) VALUES
+(62,	1,	'admin.rbac.member',	'2015-02-19 09:29:25',	'2015-02-19 09:29:25'),
+(63,	1,	'admin.rbac.member.add',	'2015-02-19 09:29:25',	'2015-02-19 09:29:25'),
+(64,	1,	'admin.rbac.member.edit',	'2015-02-19 09:29:25',	'2015-02-19 09:29:25'),
+(65,	1,	'admin.rbac.member.delete',	'2015-02-19 09:29:25',	'2015-02-19 09:29:25'),
+(66,	1,	'admin.rbac.node',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(67,	1,	'admin.rbac.dept',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(68,	1,	'admin.rbac.dept.add',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(69,	1,	'admin.rbac.dept.edit',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(70,	1,	'admin.rbac.dept.delete',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(71,	1,	'admin.rbac.access',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(72,	1,	'admin.rbac.access.add',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(73,	1,	'admin.rbac.access.edit',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(74,	1,	'admin.rbac.access.delete',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(75,	1,	'admin.setting.index',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(76,	1,	'admin.setting.cache',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(77,	1,	'admin.index.notice',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(78,	1,	'admin.index.notice.add',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(79,	1,	'admin.index.notice.edit',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(80,	1,	'admin.index.notice.delete',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(81,	1,	'admin.site.menu',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(82,	1,	'admin.site.menu.add',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(83,	1,	'admin.site.menu.delete',	'2015-02-19 09:29:26',	'2015-02-19 09:29:26'),
+(84,	2,	'admin.rbac.member',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(85,	2,	'admin.rbac.member.add',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(86,	2,	'admin.rbac.member.edit',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(87,	2,	'admin.rbac.member.delete',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(88,	2,	'admin.rbac.node',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(89,	2,	'admin.rbac.dept',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(90,	2,	'admin.rbac.dept.add',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(91,	2,	'admin.rbac.dept.edit',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(92,	2,	'admin.rbac.dept.delete',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(93,	2,	'admin.rbac.access',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(94,	2,	'admin.rbac.access.add',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(95,	2,	'admin.rbac.access.edit',	'2015-02-19 09:29:38',	'2015-02-19 09:29:38'),
+(96,	2,	'admin.rbac.access.delete',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(97,	2,	'admin.setting.index',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(98,	2,	'admin.setting.cache',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(99,	2,	'admin.index.notice',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(100,	2,	'admin.index.notice.add',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(101,	2,	'admin.index.notice.edit',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(102,	2,	'admin.index.notice.delete',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(103,	2,	'admin.site.menu',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(104,	2,	'admin.site.menu.add',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(105,	2,	'admin.site.menu.delete',	'2015-02-19 09:29:39',	'2015-02-19 09:29:39'),
+(106,	3,	'admin.rbac.member',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(107,	3,	'admin.rbac.member.add',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(108,	3,	'admin.rbac.member.edit',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(109,	3,	'admin.rbac.member.delete',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(110,	3,	'admin.rbac.node',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(111,	3,	'admin.rbac.dept',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(112,	3,	'admin.rbac.dept.add',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(113,	3,	'admin.rbac.dept.edit',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(114,	3,	'admin.rbac.dept.delete',	'2015-02-19 09:29:46',	'2015-02-19 09:29:46'),
+(115,	3,	'admin.rbac.access',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(116,	3,	'admin.rbac.access.add',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(117,	3,	'admin.rbac.access.edit',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(118,	3,	'admin.rbac.access.delete',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(119,	3,	'admin.setting.index',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(120,	3,	'admin.setting.cache',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(121,	3,	'admin.index.notice',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(122,	3,	'admin.index.notice.add',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(123,	3,	'admin.index.notice.edit',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(124,	3,	'admin.index.notice.delete',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(125,	3,	'admin.site.menu',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(126,	3,	'admin.site.menu.add',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47'),
+(127,	3,	'admin.site.menu.delete',	'2015-02-19 09:29:47',	'2015-02-19 09:29:47');
+
+DROP TABLE IF EXISTS `zl_admin_user`;
+CREATE TABLE `zl_admin_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL DEFAULT '0',
+  `pwd` varchar(50) NOT NULL DEFAULT '0',
+  `real_name` varchar(50) DEFAULT NULL COMMENT '真实姓名',
+  `pinyin` varchar(50) DEFAULT NULL COMMENT '拼音',
+  `nickname` varchar(50) NOT NULL DEFAULT '0',
+  `sign` varchar(100) DEFAULT NULL COMMENT '签名',
+  `face` varchar(100) NOT NULL DEFAULT '0',
+  `coin` int(11) NOT NULL DEFAULT '0',
+  `sex` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:保密,1:男，2：女',
+  `email_validate` tinyint(4) NOT NULL DEFAULT '0',
+  `role` int(1) NOT NULL DEFAULT '0' COMMENT '职位,999-超级管理员',
+  `dept` int(11) DEFAULT NULL COMMENT '部门',
+  `mobile` varchar(20) DEFAULT NULL COMMENT '手机号码',
+  `tel` varchar(20) DEFAULT NULL COMMENT '电话',
+  `qq` varchar(20) DEFAULT NULL COMMENT 'qq',
+  `skype` varchar(20) DEFAULT NULL COMMENT 'skype',
+  `gtalk` varchar(20) DEFAULT NULL COMMENT 'gtalk',
+  `join_date` date DEFAULT NULL COMMENT '加入日期',
+  `is_admin` tinyint(1) DEFAULT '0' COMMENT '1-是管理',
+  `last_login_time` timestamp NULL DEFAULT NULL COMMENT '最后登录时间',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `nickname` (`nickname`),
+  KEY `email` (`email`),
+  KEY `pinyin` (`pinyin`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+
+INSERT INTO `zl_admin_user` (`id`, `email`, `pwd`, `real_name`, `pinyin`, `nickname`, `sign`, `face`, `coin`, `sex`, `email_validate`, `role`, `dept`, `mobile`, `tel`, `qq`, `skype`, `gtalk`, `join_date`, `is_admin`, `last_login_time`, `mtime`, `ctime`) VALUES
+(1,	'admin@admin.com',	'264e25fa781c6980533512543b08bf4c',	'管理员',	'guanliyuan',	'admin',	'小小程序员',	'0',	0,	1,	0,	4,	6,	'13636532131',	'13636532131',	'13636532131',	'13636532131',	'13636532131',	NULL,	1,	'2015-02-28 20:41:45',	'2015-02-28 20:41:45',	'2014-11-23 18:55:59'),
+(4,	'testtest@test.com',	'ba48edf5f515c2bec1003982436a6863',	'汪开辉',	'wangkaihui',	'阿斗',	NULL,	'0',	0,	1,	0,	3,	3,	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'2015-01-01',	0,	NULL,	'2015-01-03 15:31:03',	'2015-01-01 21:24:42'),
+(5,	'admin@aaa.com',	'efd6d7bd0f4ed366db08759fec51eeb5',	'王凯餐',	'wangkaican',	'admin1',	NULL,	'0',	0,	1,	0,	1,	1,	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'2015-01-02',	0,	NULL,	'2015-01-03 15:31:09',	'2015-01-02 15:20:36'),
+(6,	'xxx@xxx.com',	'bb13189d225956f076ad5f8086a30a50',	'湖景',	'hujing',	'涛哥',	NULL,	'0',	0,	0,	0,	1,	2,	'13636532131',	'9556',	'380603103',	'380603103',	'380603103',	'2015-01-13',	0,	NULL,	'2015-01-13 21:03:46',	'2015-01-13 21:03:46'),
+(7,	'aaaa@xxx.com',	'497092bbc1d36a589e8c6e88d2a065c3',	'胡闹',	'hunao',	'闹哥',	NULL,	'0',	0,	0,	0,	2,	1,	'13636532131',	'9556',	'380603103',	'380603103',	'380603103',	'2015-01-13',	0,	NULL,	'2015-01-13 21:04:50',	'2015-01-13 21:04:50'),
+(8,	'test@test.com',	'bb13189d225956f076ad5f8086a30a50',	'测试哥',	'ceshige',	'测试哥',	NULL,	'0',	0,	0,	0,	1,	1,	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'2015-01-18',	0,	NULL,	'2015-01-18 16:57:01',	'2015-01-18 16:57:01'),
+(9,	'test2@test.com',	'bb13189d225956f076ad5f8086a30a50',	'测试哥2',	'ceshige2',	'测试哥2',	NULL,	'0',	0,	0,	0,	1,	3,	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'13120522833',	'2015-01-18',	0,	NULL,	'2015-01-18 16:57:13',	'2015-01-18 16:57:13');
+
+DROP TABLE IF EXISTS `zl_arc`;
+CREATE TABLE `zl_arc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL,
+  `content` text,
+  `zl_type` tinyint(1) DEFAULT '1' COMMENT '1:普通，2：精华',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `reply_count` int(11) NOT NULL DEFAULT '0',
+  `view_count` int(11) NOT NULL DEFAULT '0' COMMENT '访问量',
+  `is_publish` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0未发布，1已发布',
+  `tags` varchar(100) DEFAULT NULL COMMENT '标签列表',
+  `zl_score` double DEFAULT NULL COMMENT '当前文章分数',
+  `zl_score_base` double DEFAULT '0',
+  `score_version` int(11) DEFAULT '0' COMMENT 'score版本',
+  `last_reply_uid` int(11) DEFAULT NULL COMMENT '最后回复人',
+  `last_reply_time` timestamp NULL DEFAULT '0000-00-00 00:00:00' COMMENT '最后回复时间',
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_arc` (`id`, `title`, `content`, `zl_type`, `uid`, `reply_count`, `view_count`, `is_publish`, `tags`, `zl_score`, `zl_score_base`, `score_version`, `last_reply_uid`, `last_reply_time`, `ctime`, `mtime`) VALUES
+(9,	'在 Gentoo 上成功部署了 OpenConnect ，来分享一下',	'终于忍受不了 iOS 上翻墙的蛋疼劲了，VPN 一锁屏就断。和废掉完全没区别。所以，查查资料，我们来装 ocserv 吧。\r\n\r\n安装 GnuTLS\r\n\r\nocserv 最让人头疼的事情在于他依赖 GnuTLS 3.x ，Gentoo 的源里目前它还是 2.x 的状态，所以没办法，只能自己编译。\r\n\r\n**********************\r\n\r\n``cd ~\r\nwget ftp://ftp.gnutls.org/gcrypt/gnutls/v3.3/gnutls-3.3.12.tar.xz\r\ntar xvf gnutls-3.3.12.tar.xz\r\ncd gnutls-3.3.12\r\n./configure --enable-shared\r\nmake -j2 && sudo make install``\r\n\r\n编译完成后使用 sudo gnutls-cli -v 看看打印出来的版本号：\r\n\r\n`gnutls-cli 3.3.12\r\nCopyright (C) 2000-2015 Free Software Foundation, and others, all rights reserved.\r\nThis is free software. It is licensed for use, modification and\r\nredistribution under the terms of the GNU General Public License,\r\nversion 3 or later <http://gnu.org/licenses/gpl.html>`',	2,	2,	2,	103,	1,	',5,6,7,',	-1553.64,	0,	2015030420,	2,	'2015-02-01 19:28:35',	'2015-01-31 15:05:26',	'2015-03-04 20:46:02'),
+(10,	'本博客使用的主题(WordPress)Gravatar头像不显示的最新解决办法',	'最近因为Gravatar服务器被墙，导致国内使用Gravatar头像缓存失效，如今有热心网友给出了不错的解决办法，经测试成功。这是由知名社交评论\r\n\r\n服务商多说提供的国内Gravatar服务，大家可以放心使用，且不用担心速度问题，我的博客主题使用以下代码后可以开启头像缓存功能了\r\n\r\n使用任何主题，打开functions.php文件，将以下代码复制放到该文件最前，注意在第一个<?php 之后。\r\n\r\n··function mytheme_get_avatar($avatar) {\r\n    $avatar = str_replace(array(\"www.gravatar.com\",\"0.gravatar.com\",\"1.gravatar.com\",\"2.gravatar.com\"),\"gravatar.duoshuo.com\",$avatar);\r\n    return $avatar;\r\n}\r\nadd_filter( \'get_avatar\', \'mytheme_get_avatar\', 10, 3 );··',	1,	2,	10,	100,	1,	',8,9,10,',	1554.88,	0,	2015030420,	2,	'2015-02-07 20:21:25',	'2015-01-31 15:59:29',	'2015-03-04 20:01:29'),
+(11,	'本博客使用的主题(WordPress)Gravatar头像不显示的最新解决办法',	'最近因为Gravatar服务器被墙，导致国内使用Gravatar头像缓存失效，如今有热心网友给出了不错的解决办法，经测试成功。这是由知名社交评论\r\n\r\n服务商多说提供的国内Gravatar服务，大家可以放心使用，且不用担心速度问题，我的博客主题使用以下代码后可以开启头像缓存功能了\r\n\r\n使用任何主题，打开functions.php文件，将以下代码复制放到该文件最前，注意在第一个<?php 之后。\r\n\r\n··function mytheme_get_avatar($avatar) {\r\n    $avatar = str_replace(array(\"www.gravatar.com\",\"0.gravatar.com\",\"1.gravatar.com\",\"2.gravatar.com\"),\"gravatar.duoshuo.com\",$avatar);\r\n    return $avatar;\r\n}\r\nadd_filter( \'get_avatar\', \'mytheme_get_avatar\', 10, 3 );··',	1,	2,	0,	48,	1,	',8,9,10,',	-1552.97,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-01-31 15:59:34',	'2015-03-04 20:01:29'),
+(12,	'Kreogist Mu 0.6 发布，跨平台音乐管理中心',	'非常感谢大家对Mu项目的支持，在这里向所有关注Mu项目的用户说声抱歉。由于考试以及各种乱七八糟的原因，导致这个版本的开发一再拖延。\r\n\r\n作为第三个Mu的正式版，本次更新的最主要内容就是将Linux平台上的播放后端由bass切换到了Phonon，使用的是libphonon4qt5。\r\n\r\n本次更新的全部内容：\r\n\r\n* 切换Linux下默认后端为Phonon4Qt5。\r\n* 支持重命名正在播放的歌曲。\r\n* 支持根据歌曲信息自动匹配歌词。\r\n* 修正了播放器显示当前歌曲信息不正确的问题。\r\n* 修正了歌词显示信息与当前歌曲可能不正确的问题。',	1,	2,	0,	32,	1,	',11,12,13,',	-1552.9,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-01-31 17:11:12',	'2015-03-04 20:01:29'),
+(13,	'毁童年，老版纸牌 扫雷 空当接龙 黑白棋源代码',	'来自2004年泄露的NT4源码包，经过我的修改，可以在MinGW GCC上编译，本包也自带有从NT4源码包提取的一套16位Windows工具链，我也修改得可以在其上面编译了。\r\n\r\n下载地址： http://pan.baidu.com/s/1jGDZsb0\r\n\r\nhttp://ww2.sinaimg.cn/large/5ca04df0jw1eosnzohhj9j211y0lcqfw.jpg\r\n\r\n其中关于扫雷，以前我还做过进一步的研究。\r\n\r\nhttp://yksofthome.blogspot.com/2013/09/win1x2x-winmine-port-and-opinions.html',	2,	2,	51,	582,	1,	',14,15,16,17,18,',	1557.72,	0,	2015030420,	2,	'2015-02-18 21:41:53',	'2015-01-31 17:36:14',	'2015-03-04 20:41:36'),
+(14,	'王自如对话 Moto 总裁 Rick Osterloh',	'Moto 回归中国后的第一个独家专访：王自如对话 Moto 总裁 Rick Osterloh\r\n\r\n地址：\r\n\r\nhttp://www.zealer.com/post/154\r\n\r\n不论任何利益相关，这个对话，还是可以的。\r\n\r\n现在的国内手机市场真的是被低价占领，\r\n\r\n消费者（包括我）都希望用更便宜的价格，获得更好的体验，\r\nMOTO归来，你是否会支持呢？\r\n\r\n我感觉MOTO回归，对三星的冲击将是不小的，而对国产小米的向高价进军也会产生阻力。\r\n大家感觉呢~',	1,	2,	0,	34,	1,	',19,20,',	-1552.9,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-01-31 17:40:30',	'2015-03-04 20:01:29'),
+(15,	'百度输入法的存在感是不是太强了',	'从第一部手机开始就使用 笔画 输入法，会用全键盘拼音，不会九宫格拼音，好不容易等到 iOS8 可以不用越狱装输入法了，我第一时间装上了百度手机输入法。\r\n\r\n一开始的卡顿，弹不出键盘，索取完全访问权限…这些我都忍了，但是近来输入面板的 logo 上每天显示小红点，提示有词库更新，有时候还一天更新几次，点了还出现…\r\n\r\n我已经不想说什么了，你刷存在感至于这么拼命么？不弄点什么吸引下注意力就浑身不自在了。\r\n\r\n所以，不想被百度这样折磨了，卸载之！！！\r\n\r\n百度 iOS 输入法的产品经理，好好想想这个问题吧，顺便多留意 App Store 的商店评论，把产品做好，自然就有存在的价值了，天天玩这些没用的，用户背弃你了，你还玩什么？',	2,	2,	0,	51,	1,	',21,22,23,',	1558.68,	3111.74,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-01-31 17:48:13',	'2015-03-04 20:55:27'),
+(16,	'突然想到，天天吃包子怎么样？',	'好久没吃包子了，今天突发奇想： 天天吃包子，每天（三顿）吃10+个肉包，不饿即可。然后辅以水果。这样营养结构应该没啥问题吧？',	1,	2,	0,	34,	1,	',24,',	-1552.9,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-01-31 19:04:47',	'2015-03-04 20:01:29'),
+(17,	'免费 Shadowsocks 站，多个日本美国节点，欢迎大家使用！免费造福大家！',	'在各位大神的帮助下，克服重重困难，终于搭建成功了，现在高兴的拿来和大家共享，\r\n\r\n现在注册不需要邀请码，需要的速度去用吧，一定要低调哦，还有最好不要大量下载啦！谢谢大家，感谢V2EX！\r\n\r\nhttp://free.baozissh.tk/',	1,	3,	4,	57,	1,	',25,26,',	-1553.1,	0,	2015030420,	2,	'2015-02-18 16:03:57',	'2015-01-31 19:46:05',	'2015-03-04 20:01:29'),
+(18,	'流氓支付宝 app 的抢红包通知能关闭吗？',	'整天推送个没完，找遍设置里也没法关闭，直接在应用权限里关闭该应用通知权限又无法收到支付通知。\r\n\r\n这是不是就意味着根本无法关闭？这种行为是不是太流氓了。',	1,	2,	4,	53,	1,	',27,28,',	0,	0,	2015030420,	2,	'2015-02-18 16:01:39',	'2015-02-18 15:48:40',	'2015-03-04 20:42:05'),
+(19,	'<script>alert(\'aaa\');</script>',	'在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。',	1,	2,	0,	3,	0,	',29,',	-1553.16,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-02-18 21:54:56',	'2015-03-04 20:01:31'),
+(20,	'你们的群晖有哪些实用的应用场景？11111111111',	'买了白群晖，发现也就备份个照片，电影，文档啥的。看电影直接播放流看的效果也不如直接电脑\r\n\r\n上播放感觉有点鸡肋。下载功能感觉也不太好用，BT之类的速度不如迅雷。\r\n\r\n所以有时候都不开着，觉得没有真正发挥它的功能，各位有好的经验分享下吗？',	2,	2,	0,	15,	1,	',30,32,',	1559.66,	3113.14,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-02-21 17:52:13',	'2015-03-04 20:55:33'),
+(21,	'勇者斗恶龙和白猫 Project 都有台服中文化了',	'之前一直玩的日服，各种日文看不懂\r\nhttp://www.dqmsl.com.tw/\r\nhttp://www.wcproject.so-net.tw/event/201502_launch/index.html\r\n\r\n我的DQ邀请码：PGzFw8DE\r\n\r\n我的白猫邀请码：CSRN289UU',	1,	2,	0,	23,	1,	',33,35,37,',	-1553.54,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-02-21 17:59:50',	'2015-03-04 20:01:31'),
+(22,	'有从短文本中提取时间信息相关的技术么',	'请问从短文本（50字以内）提取时间信息这种需求\r\n\r\n有现成的解决方案吗？有可以参考的论文吗？这算不算是某种从A提取B的特殊情况，已经有了通\r\n\r\n用性的算法了呢？应该怎么下手搜集资料呢，，，除了硬匹配关键词，完全没有头绪。',	2,	2,	0,	12,	1,	',38,39,40,',	-1553.42,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-02-21 18:12:48',	'2015-03-04 20:42:12'),
+(23,	'在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。',	'在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。',	1,	2,	1,	18,	1,	',32,41,',	-1553.5,	0,	2015030420,	2,	'2015-03-03 21:57:19',	'2015-02-21 18:40:05',	'2015-03-04 20:01:31'),
+(24,	'移动第一贴',	'移动第一贴',	1,	2,	0,	12,	0,	',42,',	-1553.36,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-02-21 19:27:34',	'2015-03-04 20:01:31'),
+(25,	'请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。',	'请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。\r\n\r\n```\r\n请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。\r\n```\r\n\r\n请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。\r\n\r\n请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。\r\n\r\n请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。\r\n\r\n请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。',	2,	2,	0,	8,	1,	',32,',	-1553.98,	0,	2015030420,	NULL,	'0000-00-00 00:00:00',	'2015-02-28 23:07:14',	'2015-03-04 20:01:29');
+
+DROP TABLE IF EXISTS `zl_data`;
+CREATE TABLE `zl_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zl_key` varchar(20) DEFAULT NULL,
+  `zl_value` varchar(20) DEFAULT NULL,
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_data` (`id`, `zl_key`, `zl_value`, `ctime`, `mtime`) VALUES
+(1,	'arc_count',	'10',	'2015-01-31 19:04:47',	'2015-01-31 19:04:47'),
+(2,	'tag_count',	'19',	'2015-01-31 19:04:47',	'2015-01-31 19:04:47'),
+(3,	'member_count',	'1',	'2015-01-31 19:06:33',	'2015-01-31 19:06:33'),
+(4,	'reply_count',	'72',	'2015-01-31 21:14:49',	'2015-01-31 21:14:49');
+
+DROP TABLE IF EXISTS `zl_dept`;
+CREATE TABLE `zl_dept` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `pid` int(11) DEFAULT '0',
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_dept` (`id`, `name`, `pid`, `ctime`, `mtime`) VALUES
+(1,	'网站开发组',	0,	'2015-01-03 15:28:56',	'2015-01-03 15:28:56'),
+(2,	'android开发组',	0,	'2015-01-03 15:29:11',	'2015-01-03 15:29:11'),
+(3,	'ios开发组',	0,	'2015-01-03 15:29:21',	'2015-01-03 15:29:21');
+
+DROP TABLE IF EXISTS `zl_email_token`;
+CREATE TABLE `zl_email_token` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) DEFAULT NULL,
+  `token` varchar(60) DEFAULT NULL,
+  `zl_status` tinyint(1) DEFAULT '1',
+  `zl_type` tinyint(1) DEFAULT '1' COMMENT '1-邮箱验证，2-找回密码',
+  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_email_token` (`id`, `email`, `token`, `zl_status`, `zl_type`, `ctime`, `mtime`) VALUES
+(1,	'admin@admin.com',	'AE950E73315FA8458AC1E677033E9BE5',	1,	1,	'2015-01-01 20:57:52',	'2015-01-01 20:57:52'),
+(2,	'testtest@test.com',	'0C11242323B508BB2E6A0B45A34C6C80',	1,	1,	'2015-01-01 21:24:42',	'2015-01-01 21:24:42'),
+(3,	'admin@aaa.com',	'E6ADF4C63F6D006947A06ACA2D573DDB',	1,	1,	'2015-01-02 15:20:36',	'2015-01-02 15:20:36'),
+(4,	'xxx@xxx.com',	'E1CBC010AEAC4118AB18509C9BCC1B49',	1,	1,	'2015-01-13 21:03:46',	'2015-01-13 21:03:46'),
+(5,	'aaaa@xxx.com',	'7651F3F0CBB4C33E96BA2CB7294CFBA2',	1,	1,	'2015-01-13 21:04:50',	'2015-01-13 21:04:50'),
+(6,	'test@test.com',	'923F55D14D7FCB06FAC873EC275F8F77',	1,	1,	'2015-01-18 16:57:01',	'2015-01-18 16:57:01'),
+(7,	'test2@test.com',	'CF1F0B512CFA1146390CEC50D8E51A32',	1,	1,	'2015-01-18 16:57:13',	'2015-01-18 16:57:13'),
+(8,	'hpu423@126.com',	'0A8A47133B592A30EC1F7DEDAD4903D5',	1,	1,	'2015-01-31 10:59:11',	'2015-01-31 10:59:11'),
+(9,	'23wh@163.com',	'11D41FFE27D161DE31A6B697CA43705D',	1,	1,	'2015-01-31 19:06:33',	'2015-01-31 19:06:33');
+
+DROP TABLE IF EXISTS `zl_ext_favorite`;
+CREATE TABLE `zl_ext_favorite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `arc_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `ctime` timestamp NOT NULL,
+  `mtime` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_ext_favorite` (`id`, `arc_id`, `uid`, `ctime`, `mtime`) VALUES
+(3,	13,	2,	'2015-03-03 20:46:47',	'2015-03-03 20:46:47'),
+(4,	18,	2,	'2015-03-03 20:46:51',	'2015-03-03 20:46:51'),
+(5,	10,	2,	'2015-03-03 20:46:53',	'2015-03-03 20:46:53'),
+(6,	16,	2,	'2015-03-03 20:46:56',	'2015-03-03 20:46:56'),
+(7,	15,	2,	'2015-03-03 20:47:01',	'2015-03-03 20:47:01'),
+(9,	11,	2,	'2015-03-03 20:47:09',	'2015-03-03 20:47:09'),
+(10,	20,	2,	'2015-03-03 20:47:11',	'2015-03-03 20:47:11'),
+(11,	21,	2,	'2015-03-03 20:47:13',	'2015-03-03 20:47:13');
+
+DROP TABLE IF EXISTS `zl_ext_zhuanti`;
+CREATE TABLE `zl_ext_zhuanti` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `mtime` timestamp NOT NULL,
+  `ctime` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_ext_zhuanti` (`id`, `name`, `uid`, `mtime`, `ctime`) VALUES
+(1,	'技术',	2,	'2015-02-24 20:26:37',	'2015-02-24 20:26:37'),
+(2,	'分享',	2,	'2015-02-24 20:26:47',	'2015-02-24 20:26:47'),
+(3,	'xxxx',	2,	'2015-03-03 20:50:05',	'2015-03-03 20:50:05');
+
+DROP TABLE IF EXISTS `zl_ext_zhuanti_ext`;
+CREATE TABLE `zl_ext_zhuanti_ext` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zhuanti_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  `ctime` timestamp NOT NULL,
+  `mtime` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_ext_zhuanti_ext` (`id`, `zhuanti_id`, `tag_id`, `ctime`, `mtime`) VALUES
+(1,	1,	32,	'2015-02-24 20:42:09',	'2015-02-24 20:42:09'),
+(2,	1,	25,	'2015-02-24 20:42:31',	'2015-02-24 20:42:31'),
+(3,	1,	19,	'2015-02-24 20:43:38',	'2015-02-24 20:43:38'),
+(4,	1,	12,	'2015-02-24 20:43:49',	'2015-02-24 20:43:49'),
+(5,	1,	7,	'2015-02-24 20:46:09',	'2015-02-24 20:46:09'),
+(6,	2,	10,	'2015-02-24 20:46:21',	'2015-02-24 20:46:21'),
+(7,	2,	17,	'2015-02-24 20:51:22',	'2015-02-24 20:51:22'),
+(8,	1,	15,	'2015-02-24 20:55:04',	'2015-02-24 20:55:04'),
+(9,	2,	26,	'2015-02-24 21:23:12',	'2015-02-24 21:23:12'),
+(10,	3,	22,	'2015-03-03 20:50:12',	'2015-03-03 20:50:12');
+
+DROP TABLE IF EXISTS `zl_linked_user`;
+CREATE TABLE `zl_linked_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `obj_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `ftype` varchar(10) DEFAULT 'product',
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_linked_user` (`id`, `obj_id`, `user_id`, `ftype`, `ctime`, `mtime`) VALUES
+(12,	3,	4,	'product',	'2015-01-13 20:56:00',	'2015-01-13 20:56:00'),
+(13,	3,	5,	'product',	'2015-01-13 20:56:00',	'2015-01-13 20:56:00'),
+(14,	3,	1,	'product',	'2015-01-13 20:56:00',	'2015-01-13 20:56:00'),
+(18,	1,	1,	'project',	'2015-01-13 20:57:05',	'2015-01-13 20:57:05'),
+(19,	1,	4,	'project',	'2015-01-13 20:57:05',	'2015-01-13 20:57:05'),
+(20,	1,	5,	'project',	'2015-01-13 20:57:05',	'2015-01-13 20:57:05'),
+(22,	1,	5,	'product',	'2015-01-13 21:05:49',	'2015-01-13 21:05:49'),
+(23,	1,	7,	'product',	'2015-01-13 21:05:49',	'2015-01-13 21:05:49'),
+(24,	1,	6,	'product',	'2015-01-13 21:05:49',	'2015-01-13 21:05:49'),
+(25,	4,	7,	'product',	'2015-01-13 21:08:14',	'2015-01-13 21:08:14'),
+(26,	4,	6,	'product',	'2015-01-13 21:08:14',	'2015-01-13 21:08:14'),
+(27,	2,	7,	'project',	'2015-01-13 21:08:50',	'2015-01-13 21:08:50'),
+(28,	2,	6,	'project',	'2015-01-13 21:08:50',	'2015-01-13 21:08:50');
+
+DROP TABLE IF EXISTS `zl_menu`;
+CREATE TABLE `zl_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zl_url` varchar(300) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `zl_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1-底部导航  2-顶部导航',
+  `zl_sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+INSERT INTO `zl_menu` (`id`, `zl_url`, `title`, `zl_type`, `zl_sort`, `mtime`, `ctime`) VALUES
+(2,	'about',	'关于',	2,	1,	'2015-02-24 17:25:44',	'2015-02-19 09:47:43');
+
+DROP TABLE IF EXISTS `zl_msg_data`;
+CREATE TABLE `zl_msg_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `root_id` int(11) NOT NULL COMMENT '根消息id',
+  `sub_count` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `receive_uid` int(11) NOT NULL DEFAULT '0',
+  `content` text,
+  `is_read` tinyint(4) NOT NULL DEFAULT '0',
+  `send_status` tinyint(1) NOT NULL DEFAULT '1',
+  `receve_status` tinyint(1) NOT NULL DEFAULT '1',
+  `msg_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1为系统信息，0为普通信息',
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`),
+  KEY `receive_uid` (`receive_uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_msg_data` (`id`, `root_id`, `sub_count`, `uid`, `receive_uid`, `content`, `is_read`, `send_status`, `receve_status`, `msg_type`, `ctime`, `mtime`) VALUES
+(1,	1,	1,	3,	2,	'> asdasdasdasd\r\n\r\n* asdasdasdasd\r\n\r\n* =========\r\n\r\n* ddfdddddddddddddddddddddd',	1,	1,	0,	0,	'2015-02-03 19:54:28',	'2015-02-25 20:35:53'),
+(2,	2,	1,	2,	3,	'> asdasdasdasd\r\n\r\n* asdasdasdasd\r\n\r\n* =========\r\n\r\n* ddfdddddddddddddddddddddd',	1,	0,	1,	0,	'2015-02-03 20:04:21',	'2015-02-25 20:35:51'),
+(3,	3,	2,	2,	3,	'在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。',	1,	0,	0,	0,	'2015-02-04 20:59:01',	'2015-02-25 20:35:43'),
+(4,	4,	20,	3,	2,	'你好\r\n\r\n谢谢你的来信\r\n\r\n我会在有空的时候回复你',	1,	1,	0,	0,	'2015-02-04 21:07:11',	'2015-02-27 21:35:01'),
+(5,	4,	1,	2,	3,	'fffffffffffff',	1,	1,	0,	0,	'2015-02-04 21:56:21',	'2015-02-24 15:02:41'),
+(6,	4,	1,	2,	3,	'ffffffffffffffffff',	1,	1,	0,	0,	'2015-02-04 21:56:26',	'2015-02-24 15:02:41'),
+(7,	4,	1,	3,	2,	'ffffffffffffffffff',	1,	1,	0,	0,	'2015-02-04 22:03:18',	'2015-02-27 21:35:01'),
+(8,	4,	1,	3,	2,	'aaaaaaaaaaaaaaaaaaaaaa',	1,	1,	0,	0,	'2015-02-04 22:03:25',	'2015-02-27 21:35:01'),
+(9,	4,	1,	3,	2,	'sssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:18:21',	'2015-02-27 21:35:01'),
+(10,	4,	1,	3,	2,	'sssssssss',	1,	1,	1,	0,	'2015-02-04 22:18:53',	'2015-02-27 21:35:01'),
+(11,	4,	1,	3,	2,	'sssssssssss',	1,	1,	1,	0,	'2015-02-04 22:18:56',	'2015-02-27 21:35:01'),
+(12,	4,	1,	3,	2,	'ssssssssss',	1,	1,	1,	0,	'2015-02-04 22:21:25',	'2015-02-27 21:35:01'),
+(13,	4,	1,	3,	2,	'ssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:21:36',	'2015-02-27 21:35:01'),
+(14,	4,	1,	3,	2,	'顶顶顶顶的ddd',	1,	1,	1,	0,	'2015-02-04 22:45:24',	'2015-02-27 21:35:01'),
+(15,	4,	1,	3,	2,	'ddddddddddddddddddd',	1,	1,	1,	0,	'2015-02-04 22:45:29',	'2015-02-27 21:35:01'),
+(16,	4,	1,	3,	2,	'ddddddddddddddddd',	1,	1,	1,	0,	'2015-02-04 22:45:31',	'2015-02-27 21:35:01'),
+(17,	4,	1,	3,	2,	'ddddddddddddddd',	1,	1,	1,	0,	'2015-02-04 22:45:33',	'2015-02-27 21:35:01'),
+(18,	4,	1,	3,	2,	'dddddddddddddddddddddddd',	1,	1,	1,	0,	'2015-02-04 22:45:35',	'2015-02-27 21:35:01'),
+(19,	4,	1,	3,	2,	'sssssssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:45:39',	'2015-02-27 21:35:01'),
+(20,	4,	1,	3,	2,	'ssssssssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:45:41',	'2015-02-27 21:35:01'),
+(21,	4,	1,	3,	2,	'ssssssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:45:43',	'2015-02-27 21:35:01'),
+(22,	4,	1,	3,	2,	'sssssssssssssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:45:45',	'2015-02-27 21:35:01'),
+(23,	4,	1,	3,	2,	'ssssssssssssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:45:47',	'2015-02-27 21:35:01'),
+(24,	4,	1,	3,	2,	'ssssssssssssssssssssssss',	1,	1,	1,	0,	'2015-02-04 22:45:49',	'2015-02-27 21:35:01'),
+(25,	4,	1,	3,	2,	'asdasda\r\n\r\nasdasd\r\n\r\nasdasd\r\n\r\nasdasd\r\nasdasda\r\n\r\n\r\n\r\nasdasdasd\r\n\r\n\r\nasdasdasd',	1,	1,	1,	0,	'2015-02-04 22:46:36',	'2015-02-27 21:35:01'),
+(26,	3,	1,	2,	3,	'ssssssssssss',	1,	1,	1,	0,	'2015-02-21 18:15:12',	'2015-02-24 15:02:32'),
+(27,	27,	2,	2,	3,	'在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。',	0,	1,	1,	0,	'2015-02-25 20:36:26',	'2015-02-25 20:36:27'),
+(28,	27,	1,	2,	3,	'sssssssssss',	0,	1,	1,	0,	'2015-02-27 22:52:16',	'2015-02-27 22:52:16');
+
+DROP TABLE IF EXISTS `zl_msg_notice`;
+CREATE TABLE `zl_msg_notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `feed_content` text NOT NULL,
+  `url` varchar(400) NOT NULL DEFAULT '0',
+  `zl_type` tinyint(1) DEFAULT '1' COMMENT '1-notice 2-msg',
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_msg_notice` (`id`, `feed_content`, `url`, `zl_type`, `ctime`, `mtime`) VALUES
+(2,	'{\"user\":\"3\",\"time\":\"2015-02-01 19:32:05\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\u6d4b\\u8bd5\\u6d88\\u606f\"}',	'/v-3-13#reply_form',	1,	'2015-02-01 19:32:05',	'2015-02-01 19:32:05'),
+(3,	'{\"user\":\"3\",\"time\":\"2015-02-01 19:32:52\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\u53d1\\u6d88\\u606f2\\uff0c\\u54c8\\u54c8\\u54c8\"}',	'/v-3-13#reply_form',	1,	'2015-02-01 19:32:52',	'2015-02-01 19:32:52'),
+(4,	'{\"user\":\"3\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\u751f\\u751f\\u4e16\\u4e16\\u662f\\u4e8b\\u5b9e\\u4e0a\\u8bf4\\u8c01\"}',	'/v-3-13#reply_form',	1,	'2015-02-01 19:45:28',	'2015-02-01 19:45:28'),
+(5,	'{\"user\":\"3\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\u751f\\u751f\\u4e16\\u4e16\\u662f\\u4e8b\\u5b9e\\u4e0a\\u8bf4\\u8c01\\u751f\\u751f\\u4e16\\u4e16\\u662f\"}',	'/v-3-13#reply_form',	1,	'2015-02-01 19:45:34',	'2015-02-01 19:45:34'),
+(6,	'{\"user\":\"2\",\"content\":\"@\\u5510\\u671d\\u548c\\u5c1a \\r\\nsdfsdfsdfsdfsd\"}',	'/v-3-13#reply_content_47',	1,	'2015-02-01 19:54:27',	'2015-02-01 19:54:27'),
+(7,	'{\"user\":\"2\",\"content\":\"@\\u5510\\u671d\\u548c\\u5c1a \\r\\nsdfsdfsssssssssssssssssss\"}',	'/v-3-13#reply_content_48',	1,	'2015-02-01 19:54:32',	'2015-02-01 19:54:32'),
+(8,	'{\"user\":\"2\",\"content\":\"@\\u5510\\u671d\\u548c\\u5c1a \\r\\nssssssssssssssssssssssssssss\"}',	'/v-3-13#reply_content_49',	1,	'2015-02-01 19:54:36',	'2015-02-01 19:54:36'),
+(9,	'{\"user\":\"2\",\"content\":\"@\\u5510\\u671d\\u548c\\u5c1a \\r\\nsssssssssssssssssssssssss\"}',	'/v-3-13#reply_content_50',	1,	'2015-02-01 19:54:40',	'2015-02-01 19:54:40'),
+(10,	'{\"user\":\"3\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\r\\n===\\u5f00\\u59cb\\u7684\\u5730\\u65b9\\r\\n\\r\\n\\u7ed3\\u675f\\u4e86\\u5417\\r\\n\\r\\n\\u4e3a\\u4ec0\\u4e48\\u4f1a\\u8fd9\\u6837\\r\\n\\r\\n\\u54c8\\u54c8\"}',	'/v-4-13#reply_content_52',	1,	'2015-02-01 19:56:19',	'2015-02-01 19:56:19'),
+(11,	'{\"user\":\"3\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\r\\n\\r\\n*\\u7ed3\\u675f\\u4e86\\u5417\\r\\n\\r\\n*\\u4e3a\\u4ec0\\u4e48\\u4f1a\\u8fd9\\u6837\\r\\n\\r\\n*\\u54c8\\u54c8\"}',	'/v-4-13#reply_content_53',	1,	'2015-02-01 19:56:55',	'2015-02-01 19:56:55'),
+(12,	'{\"user\":\"3\",\"content\":\"@\\u534a\\u4ed9 \\r\\n\\r\\n* \\u7ed3\\u675f\\u4e86\\u5417\\r\\n\\r\\n* \\u4e3a\\u4ec0\\u4e48\\u4f1a\\u8fd9\\u6837\\r\\n\\r\\n* \\u54c8\\u54c8\"}',	'/v-4-13#reply_content_54',	1,	'2015-02-01 19:57:08',	'2015-02-01 19:57:08'),
+(13,	'{\"user\":\"2\",\"content\":\"\\u5728\\u6b63\\u5f0f\\u63d0\\u4ea4\\u4e4b\\u524d\\uff0c\\u4f60\\u53ef\\u4ee5\\u70b9\\u51fb\\u672c\\u9875\\u9762\\u5de6\\u4e0b\\u89d2\\u7684\\u201c\\u9884\\u89c8\\u201d\\u6765\\u67e5\\u770b Markdown \\u6b63\\u6587\\u7684\\u5b9e\\u9645\\u6e32\\u67d3\\u6548\\u679c\\u3002\"}',	'msgv-3-1',	2,	'2015-02-04 20:59:01',	'2015-02-04 20:59:01'),
+(14,	'{\"user\":\"3\",\"content\":\"\\u4f60\\u597d\\r\\n\\r\\n\\u8c22\\u8c22\\u4f60\\u7684\\u6765\\u4fe1\\r\\n\\r\\n\\u6211\\u4f1a\\u5728\\u6709\\u7a7a\\u7684\\u65f6\\u5019\\u56de\\u590d\\u4f60\"}',	'msgv-4-1',	2,	'2015-02-04 21:07:11',	'2015-02-04 21:07:11'),
+(15,	'{\"user\":\"2\",\"content\":\"fffffffffffff\"}',	'msgv-5-1',	2,	'2015-02-04 21:56:21',	'2015-02-04 21:56:21'),
+(16,	'{\"user\":\"2\",\"content\":\"ffffffffffffffffff\"}',	'msgv-6-1',	2,	'2015-02-04 21:56:26',	'2015-02-04 21:56:26'),
+(17,	'{\"user\":\"3\",\"content\":\"ffffffffffffffffff\"}',	'msgv-7-1',	2,	'2015-02-04 22:03:18',	'2015-02-04 22:03:18'),
+(18,	'{\"user\":\"3\",\"content\":\"aaaaaaaaaaaaaaaaaaaaaa\"}',	'msgv-8-1',	2,	'2015-02-04 22:03:25',	'2015-02-04 22:03:25'),
+(19,	'{\"user\":\"3\",\"content\":\"sssssssssssss\"}',	'msgv-9-1',	2,	'2015-02-04 22:18:21',	'2015-02-04 22:18:21'),
+(20,	'{\"user\":\"3\",\"content\":\"sssssssss\"}',	'msgv-10-1',	2,	'2015-02-04 22:18:53',	'2015-02-04 22:18:53'),
+(21,	'{\"user\":\"3\",\"content\":\"sssssssssss\"}',	'msgv-11-1',	2,	'2015-02-04 22:18:56',	'2015-02-04 22:18:56'),
+(22,	'{\"user\":\"3\",\"content\":\"ssssssssss\"}',	'msgv-12-1',	2,	'2015-02-04 22:21:25',	'2015-02-04 22:21:25'),
+(23,	'{\"user\":\"3\",\"content\":\"ssssssssssss\"}',	'msgv-13-1',	2,	'2015-02-04 22:21:36',	'2015-02-04 22:21:36'),
+(24,	'{\"user\":\"3\",\"content\":\"\\u9876\\u9876\\u9876\\u9876\\u7684ddd\"}',	'msgv-14-1',	2,	'2015-02-04 22:45:24',	'2015-02-04 22:45:24'),
+(25,	'{\"user\":\"3\",\"content\":\"ddddddddddddddddddd\"}',	'msgv-15-1',	2,	'2015-02-04 22:45:29',	'2015-02-04 22:45:29'),
+(26,	'{\"user\":\"3\",\"content\":\"ddddddddddddddddd\"}',	'msgv-16-1',	2,	'2015-02-04 22:45:31',	'2015-02-04 22:45:31'),
+(27,	'{\"user\":\"3\",\"content\":\"ddddddddddddddd\"}',	'msgv-17-1',	2,	'2015-02-04 22:45:33',	'2015-02-04 22:45:33'),
+(28,	'{\"user\":\"3\",\"content\":\"dddddddddddddddddddddddd\"}',	'msgv-18-1',	2,	'2015-02-04 22:45:35',	'2015-02-04 22:45:35'),
+(29,	'{\"user\":\"3\",\"content\":\"sssssssssssssssss\"}',	'msgv-19-1',	2,	'2015-02-04 22:45:39',	'2015-02-04 22:45:39'),
+(30,	'{\"user\":\"3\",\"content\":\"ssssssssssssssssss\"}',	'msgv-20-1',	2,	'2015-02-04 22:45:41',	'2015-02-04 22:45:41'),
+(31,	'{\"user\":\"3\",\"content\":\"ssssssssssssssss\"}',	'msgv-21-1',	2,	'2015-02-04 22:45:43',	'2015-02-04 22:45:43'),
+(32,	'{\"user\":\"3\",\"content\":\"sssssssssssssssssssssss\"}',	'msgv-22-1',	2,	'2015-02-04 22:45:45',	'2015-02-04 22:45:45'),
+(33,	'{\"user\":\"3\",\"content\":\"ssssssssssssssssssssss\"}',	'msgv-23-1',	2,	'2015-02-04 22:45:47',	'2015-02-04 22:45:47'),
+(34,	'{\"user\":\"3\",\"content\":\"ssssssssssssssssssssssss\"}',	'msgv-24-1',	2,	'2015-02-04 22:45:49',	'2015-02-04 22:45:49'),
+(35,	'{\"user\":\"3\",\"content\":\"asdasda\\r\\n\\r\\nasdasd\\r\\n\\r\\nasdasd\\r\\n\\r\\nasdasd\\r\\nasdasda\\r\\n\\r\\n\\r\\n\\r\\nasdasdasd\\r\\n\\r\\n\\r\\nasdasdasd\"}',	'msgv-25-1',	2,	'2015-02-04 22:46:36',	'2015-02-04 22:46:36'),
+(36,	'{\"user\":\"2\",\"content\":\"ssssssssssss\"}',	'msgv-26-1',	2,	'2015-02-21 18:15:12',	'2015-02-21 18:15:12'),
+(37,	'{\"user\":\"2\",\"content\":\"\\u5728\\u6b63\\u5f0f\\u63d0\\u4ea4\\u4e4b\\u524d\\uff0c\\u4f60\\u53ef\\u4ee5\\u70b9\\u51fb\\u672c\\u9875\\u9762\\u5de6\\u4e0b\\u89d2\\u7684\\u201c\\u9884\\u89c8\\u201d\\u6765\\u67e5\\u770b Markdown \\u6b63\\u6587\\u7684\\u5b9e\\u9645\\u6e32\\u67d3\\u6548\\u679c\\u3002\"}',	'msgv-27-1',	2,	'2015-02-25 20:36:27',	'2015-02-25 20:36:27'),
+(38,	'{\"user\":\"2\",\"content\":\"sssssssssss\"}',	'msgv-28-1',	2,	'2015-02-27 22:52:16',	'2015-02-27 22:52:16');
+
+DROP TABLE IF EXISTS `zl_msg_notice_read_log`;
+CREATE TABLE `zl_msg_notice_read_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notice_id` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_msg_notice_read_log` (`id`, `notice_id`, `uid`, `is_read`, `ctime`, `mtime`) VALUES
+(1,	2,	2,	1,	'2015-02-01 19:32:05',	'2015-02-07 18:06:14'),
+(2,	3,	2,	1,	'2015-02-01 19:32:52',	'2015-02-07 18:06:21'),
+(3,	4,	2,	1,	'2015-02-01 19:45:28',	'2015-02-07 18:46:48'),
+(4,	5,	2,	1,	'2015-02-01 19:45:34',	'2015-02-07 18:46:47'),
+(5,	6,	3,	1,	'2015-02-01 19:54:27',	'2015-02-24 15:02:17'),
+(6,	7,	3,	1,	'2015-02-01 19:54:32',	'2015-02-24 15:02:33'),
+(7,	8,	3,	1,	'2015-02-01 19:54:36',	'2015-02-24 15:02:23'),
+(8,	9,	3,	1,	'2015-02-01 19:54:40',	'2015-02-24 15:02:35'),
+(9,	10,	2,	1,	'2015-02-01 19:56:19',	'2015-02-07 18:46:54'),
+(10,	11,	2,	1,	'2015-02-01 19:56:55',	'2015-02-07 18:46:53'),
+(11,	12,	2,	1,	'2015-02-01 19:57:08',	'2015-02-07 18:06:30'),
+(12,	13,	3,	1,	'2015-02-04 20:59:01',	'2015-02-24 15:02:27'),
+(13,	14,	2,	1,	'2015-02-04 21:07:11',	'2015-02-07 18:46:42'),
+(14,	15,	3,	1,	'2015-02-04 21:56:21',	'2015-02-24 15:02:36'),
+(15,	16,	3,	1,	'2015-02-04 21:56:26',	'2015-02-24 15:02:40'),
+(16,	17,	2,	1,	'2015-02-04 22:03:18',	'2015-02-07 18:46:57'),
+(17,	18,	2,	1,	'2015-02-04 22:03:25',	'2015-02-07 18:47:04'),
+(18,	19,	2,	1,	'2015-02-04 22:18:21',	'2015-02-07 18:46:59'),
+(19,	20,	2,	1,	'2015-02-04 22:18:53',	'2015-02-07 18:47:05'),
+(20,	21,	2,	1,	'2015-02-04 22:18:56',	'2015-02-07 18:47:09'),
+(21,	22,	2,	1,	'2015-02-04 22:21:25',	'2015-02-07 18:47:07'),
+(22,	23,	2,	1,	'2015-02-04 22:21:36',	'2015-02-07 18:47:02'),
+(23,	24,	2,	1,	'2015-02-04 22:45:24',	'2015-02-07 18:47:12'),
+(24,	25,	2,	1,	'2015-02-04 22:45:29',	'2015-02-07 18:47:10'),
+(25,	26,	2,	1,	'2015-02-04 22:45:31',	'2015-02-08 12:32:40'),
+(26,	27,	2,	1,	'2015-02-04 22:45:33',	'2015-02-07 18:47:18'),
+(27,	28,	2,	1,	'2015-02-04 22:45:35',	'2015-02-18 14:42:20'),
+(28,	29,	2,	1,	'2015-02-04 22:45:39',	'2015-02-27 21:35:01'),
+(29,	30,	2,	1,	'2015-02-04 22:45:41',	'2015-02-07 20:13:19'),
+(30,	31,	2,	1,	'2015-02-04 22:45:43',	'2015-02-07 19:45:58'),
+(31,	32,	2,	1,	'2015-02-04 22:45:45',	'2015-02-07 20:13:26'),
+(32,	33,	2,	1,	'2015-02-04 22:45:47',	'2015-02-18 14:43:01'),
+(33,	34,	2,	1,	'2015-02-04 22:45:49',	'2015-02-07 20:13:27'),
+(34,	35,	2,	1,	'2015-02-04 22:46:36',	'2015-02-18 14:42:53'),
+(35,	36,	3,	1,	'2015-02-21 18:15:12',	'2015-02-24 15:02:32'),
+(36,	37,	3,	0,	'2015-02-25 20:36:27',	'2015-02-25 20:36:27'),
+(37,	38,	3,	0,	'2015-02-27 22:52:16',	'2015-02-27 22:52:16');
+
+DROP TABLE IF EXISTS `zl_notice`;
+CREATE TABLE `zl_notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) DEFAULT NULL,
+  `content` text,
+  `show_time` timestamp NULL DEFAULT NULL,
+  `zl_type` tinyint(1) DEFAULT '1' COMMENT '1-公告，2-说明',
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_notice` (`id`, `title`, `content`, `show_time`, `zl_type`, `ctime`, `mtime`) VALUES
+(1,	' 修正站内热点榜并',	' 修正站内热点榜并',	'2015-01-31 18:49:41',	1,	NULL,	'2015-01-31 18:49:31'),
+(2,	' 新版加入支付宝在线',	' 新版加入支付宝在线',	'2015-01-31 18:49:46',	1,	NULL,	'2015-01-31 18:49:38'),
+(4,	'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',	'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n\r\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n\r\n> 测死\r\n\r\n> cecec\r\n\r\n> dfsdfsd',	'2015-02-25 20:50:08',	1,	'2015-02-17 14:53:37',	'2015-02-25 20:54:15');
+
+DROP TABLE IF EXISTS `zl_reply`;
+CREATE TABLE `zl_reply` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) DEFAULT NULL,
+  `arc_id` int(11) NOT NULL DEFAULT '0',
+  `is_publish` int(11) NOT NULL DEFAULT '1',
+  `content` text,
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_reply` (`id`, `uid`, `arc_id`, `is_publish`, `content`, `ctime`, `mtime`) VALUES
+(1,	2,	13,	1,	'增加一条数据，哈哈哈',	'2015-01-31 21:02:43',	'2015-01-31 21:02:43'),
+(4,	2,	13,	1,	'function parse($text){\r\n        $text = parent::parse($text);\r\n        return removeXss($text);\r\n    }',	'2015-01-31 21:18:35',	'2015-01-31 21:18:35'),
+(5,	2,	13,	1,	'··    function parse($text){\r\n        $text = parent::parse($text);\r\n        return removeXss($text);\r\n    }··',	'2015-01-31 21:18:48',	'2015-01-31 21:18:48'),
+(6,	2,	13,	1,	'> asdasdasda\r\n>  dasdasdas',	'2015-01-31 21:19:05',	'2015-01-31 21:19:05'),
+(7,	2,	13,	1,	'* 不错\r\n* 哈哈\r\n* uuu',	'2015-01-31 21:19:21',	'2015-01-31 21:19:21'),
+(8,	2,	13,	1,	'``aaaaaaaaaaaaaaaaaaaaa``',	'2015-01-31 21:19:35',	'2015-01-31 21:19:35'),
+(9,	2,	13,	1,	'``function parse($text){ $text = parent::parse($text); return removeXss($text); }``',	'2015-01-31 21:19:48',	'2015-01-31 21:19:48'),
+(10,	2,	13,	1,	'@半仙 \r\nasdasda\r\n@半仙 \r\nadsasda\r\n@半仙 \r\nadasdasdas',	'2015-01-31 21:24:31',	'2015-01-31 21:24:31'),
+(11,	2,	13,	1,	'@半仙  不错啊\r\n\r\n\r\nasdadasd\r\n\r\n\r\nasdasdasd',	'2015-01-31 21:37:30',	'2015-01-31 21:37:30'),
+(12,	2,	13,	1,	'sssssssssss',	'2015-01-31 21:47:47',	'2015-01-31 21:47:47'),
+(13,	2,	13,	1,	'@半仙 \r\n说点什么呢？',	'2015-01-31 21:57:11',	'2015-01-31 21:57:11'),
+(14,	2,	13,	1,	'指环王',	'2015-01-31 21:59:20',	'2015-01-31 21:59:20'),
+(15,	2,	13,	1,	'牛人啊',	'2015-01-31 21:59:43',	'2015-01-31 21:59:43'),
+(16,	2,	13,	1,	'xxx牛',	'2015-01-31 21:59:49',	'2015-01-31 21:59:49'),
+(17,	2,	13,	1,	'生生世世是事实上',	'2015-01-31 22:00:53',	'2015-01-31 22:00:53'),
+(18,	2,	13,	1,	'生生世世是事实上',	'2015-01-31 22:01:05',	'2015-01-31 22:01:05'),
+(19,	2,	13,	1,	'生生世世是事实上',	'2015-01-31 22:01:09',	'2015-01-31 22:01:09'),
+(20,	2,	13,	1,	'ssssssss',	'2015-01-31 22:01:11',	'2015-01-31 22:01:11'),
+(21,	2,	13,	1,	'阿斯达时代',	'2015-01-31 22:01:14',	'2015-01-31 22:01:14'),
+(22,	2,	17,	1,	'生生世世是事实上',	'2015-01-31 22:02:02',	'2015-01-31 22:02:02'),
+(23,	2,	17,	1,	'生生世世是事实上',	'2015-01-31 22:02:05',	'2015-01-31 22:02:05'),
+(24,	2,	13,	1,	'@半仙 \r\n奥斯丁发射点法\r\n阿涉法上访',	'2015-01-31 22:06:55',	'2015-01-31 22:06:55'),
+(25,	2,	13,	1,	'·· ··\r\n·· ··\r\n··    ··',	'2015-01-31 22:07:19',	'2015-01-31 22:07:19'),
+(26,	2,	13,	1,	'·· $data[\'content\'] = $content;··',	'2015-01-31 22:08:02',	'2015-01-31 22:08:02'),
+(27,	2,	13,	1,	'``            $data[\'content\'] = $content;``',	'2015-01-31 22:08:13',	'2015-01-31 22:08:13'),
+(28,	2,	13,	1,	'`` \r\n$data[\'content\'] = $content;\r\n  zl::dao(\"reply\")->insert($data);\r\n            $check = zl::dao(\"data\")->get(array(\"zl_key\"=>\"reply_count\"));\r\n            if($check){\r\n                zl::dao(\"data\")->inCrease(\"zl_value\",array(\"zl_key\"=>\"reply_count\"));\r\n            }else{\r\n                zl::dao(\"data\")->insert(array(\"zl_key\"=>\"reply_count\",\"zl_value\"=>1));\r\n            }\r\n\r\n``',	'2015-01-31 22:08:31',	'2015-01-31 22:08:31'),
+(29,	2,	13,	1,	'``  zl::dao(\"reply\")->insert($data);\r\n`` zl::dao(\"reply\")->insert($data);\r\n``zl::dao(\"reply\")->insert($data);',	'2015-01-31 22:08:49',	'2015-01-31 22:08:49'),
+(30,	2,	13,	1,	'``zl::dao(\"reply\")->insert($data);\r\n``zl::dao(\"reply\")->insert($data);\r\n``zl::dao(\"reply\")->insert($data);',	'2015-01-31 22:09:05',	'2015-01-31 22:09:05'),
+(31,	2,	13,	1,	'``zl::dao(\"reply\")->insert($data);',	'2015-01-31 22:09:09',	'2015-01-31 22:09:09'),
+(32,	2,	13,	1,	'>zl::dao(\"reply\")->insert($data);\r\n>zl::dao(\"reply\")->insert($data);\r\n>zl::dao(\"reply\")->insert($data);',	'2015-01-31 22:09:16',	'2015-01-31 22:09:16'),
+(33,	2,	13,	1,	'>sssssssssssssss\r\n>sssssssssssssss\r\n>ssssssssssssss',	'2015-01-31 22:10:33',	'2015-01-31 22:10:33'),
+(34,	2,	13,	1,	'> sssssssssssssssssss\r\n\r\n> ssssssssssssssssss',	'2015-01-31 22:10:47',	'2015-01-31 22:10:47'),
+(35,	2,	13,	1,	'> ssssssssssssssssssssssssssssssssss       sssssssssssssssssssssssssssss         ssssssssssssssss',	'2015-01-31 22:10:59',	'2015-01-31 22:10:59'),
+(36,	2,	13,	1,	'>sssssssssssssss\r\n\r\n>ssssssssssssssssssssss\r\n\r\n``ssssssssssssssss\r\n\r\n``sssssssssssssssssssssssssss\r\n\r\n``sssssssssssssssssssssssssss',	'2015-01-31 22:11:19',	'2015-01-31 22:11:19'),
+(37,	2,	13,	1,	'``ssssssssssssssssssss``\r\n\r\n``sssssssssssssssssssssssssss``\r\n\r\n``dddddddddddddddddddddddddddd``\r\n``ssssssssssssssssssssssss``',	'2015-01-31 22:11:43',	'2015-01-31 22:11:43'),
+(38,	2,	9,	1,	'测试一条回复',	'2015-02-01 19:27:57',	'2015-02-01 19:27:57'),
+(39,	2,	9,	1,	'测试一条回复',	'2015-02-01 19:28:35',	'2015-02-01 19:28:35'),
+(40,	3,	13,	1,	'@半仙 \r\n测试消息',	'2015-02-01 19:32:05',	'2015-02-01 19:32:05'),
+(41,	3,	13,	1,	'@唐朝和尚 \r\n测试发消息2，哈哈哈，不错',	'2015-02-01 19:32:33',	'2015-02-01 19:32:33'),
+(42,	3,	13,	1,	'@半仙 \r\n发消息2，哈哈哈',	'2015-02-01 19:32:52',	'2015-02-01 19:32:52'),
+(43,	3,	13,	1,	'@半仙 \r\n生生世世是事实上说谁',	'2015-02-01 19:45:28',	'2015-02-01 19:45:28'),
+(44,	3,	13,	1,	'@半仙 \r\n生生世世是事实上说谁生生世世是',	'2015-02-01 19:45:34',	'2015-02-01 19:45:34'),
+(45,	2,	13,	1,	'dddddddddddddd',	'2015-02-01 19:53:51',	'2015-02-01 19:53:51'),
+(46,	2,	13,	1,	'ssssssssssss',	'2015-02-01 19:54:07',	'2015-02-01 19:54:07'),
+(47,	2,	13,	1,	'@唐朝和尚 \r\nsdfsdfsdfsdfsd',	'2015-02-01 19:54:27',	'2015-02-01 19:54:27'),
+(48,	2,	13,	1,	'@唐朝和尚 \r\nsdfsdfsssssssssssssssssss',	'2015-02-01 19:54:32',	'2015-02-01 19:54:32'),
+(49,	2,	13,	1,	'@唐朝和尚 \r\nssssssssssssssssssssssssssss',	'2015-02-01 19:54:36',	'2015-02-01 19:54:36'),
+(50,	2,	13,	1,	'@唐朝和尚 \r\nsssssssssssssssssssssssss',	'2015-02-01 19:54:40',	'2015-02-01 19:54:40'),
+(51,	3,	13,	1,	'===开始的地方\r\n\r\n> 结束了吗\r\n\r\n> 为什么会这样\r\n\r\n> 哈哈',	'2015-02-01 19:56:06',	'2015-02-01 19:56:06'),
+(52,	3,	13,	1,	'@半仙 \r\n\r\n===开始的地方\r\n\r\n结束了吗\r\n\r\n为什么会这样\r\n\r\n哈哈',	'2015-02-01 19:56:19',	'2015-02-01 19:56:19'),
+(53,	3,	13,	1,	'@半仙 \r\n\r\n\r\n*结束了吗\r\n\r\n*为什么会这样\r\n\r\n*哈哈',	'2015-02-01 19:56:55',	'2015-02-01 19:56:55'),
+(54,	3,	13,	1,	'@半仙 \r\n\r\n* 结束了吗\r\n\r\n* 为什么会这样\r\n\r\n* 哈哈',	'2015-02-01 19:57:08',	'2015-02-01 19:57:08'),
+(55,	2,	10,	1,	'`` @a=\"\"hello world; ``\r\n`` echo $a; ``',	'2015-02-03 20:48:30',	'2015-02-03 20:48:30'),
+(56,	2,	10,	1,	'``@a=\"\"hello world; \r\n\r\n``echo $a;',	'2015-02-03 20:48:43',	'2015-02-03 20:48:43'),
+(57,	2,	10,	1,	'``@a=\"\"hello world;``\r\n\r\n``echo $a;``',	'2015-02-03 20:49:00',	'2015-02-03 20:49:00'),
+(58,	2,	10,	1,	'@半仙 \r\nghjhgjghjgh',	'2015-02-03 20:50:06',	'2015-02-03 20:50:06'),
+(59,	2,	10,	1,	'<script>\r\nalert(\'aaaaa\');\r\n</script>',	'2015-02-07 20:15:08',	'2015-02-07 20:15:08'),
+(60,	2,	10,	1,	'http://www.ftchinese.com/',	'2015-02-07 20:19:27',	'2015-02-07 20:19:27'),
+(61,	2,	10,	1,	'http://www.ftchinese.com/',	'2015-02-07 20:19:52',	'2015-02-07 20:19:52'),
+(62,	2,	10,	1,	'http://www.ftchinese.com/',	'2015-02-07 20:20:41',	'2015-02-07 20:20:41'),
+(63,	2,	10,	1,	'http://tag8.com/index.php/v-1-10#reply_content_62',	'2015-02-07 20:21:14',	'2015-02-07 20:21:14'),
+(64,	2,	10,	1,	'http://www.ftchinese.com/',	'2015-02-07 20:21:25',	'2015-02-07 20:21:25'),
+(65,	2,	17,	1,	'@半仙 \r\nzxxczxczxc\r\nzxczxcz\r\n\r\nzxczxczxc\r\n\r\nzxczxczxc',	'2015-02-07 20:22:20',	'2015-02-07 20:22:20'),
+(66,	2,	18,	1,	'哈哈哈  哈哈哈  哈哈哈',	'2015-02-18 15:49:14',	'2015-02-18 15:49:14'),
+(67,	2,	18,	1,	'zzzzzzzzzzzzzzzzzzzzzzzzz',	'2015-02-18 16:01:32',	'2015-02-18 16:01:32'),
+(68,	2,	18,	1,	'zzzzzzzzzzzzzzzzzzzzzz',	'2015-02-18 16:01:35',	'2015-02-18 16:01:35'),
+(69,	2,	18,	1,	'zzzzzzzzzzzzzzzzzzzzzzzz',	'2015-02-18 16:01:39',	'2015-02-18 16:01:39'),
+(70,	2,	17,	1,	'@半仙 \r\ndfdfd\r\ndfdffd\r\n\r\n\r\nfffffffffffffffffffff\r\n\r\nfffffffffffffffffffffff',	'2015-02-18 16:03:57',	'2015-02-18 16:03:57'),
+(71,	2,	13,	1,	'dddddddd',	'2015-02-18 16:06:47',	'2015-02-18 16:06:47'),
+(72,	2,	13,	1,	'@半仙 \r\n\r\nsfdsdfsdf',	'2015-02-18 21:41:53',	'2015-02-18 21:41:53'),
+(73,	2,	23,	1,	'ddddddddddddd',	'2015-03-03 21:57:19',	'2015-03-03 21:57:19');
+
+DROP TABLE IF EXISTS `zl_role`;
+CREATE TABLE `zl_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_role` (`id`, `name`, `ctime`, `mtime`) VALUES
+(1,	'网站开发工程师',	'2015-01-03 15:30:27',	'2015-02-19 09:29:25'),
+(2,	'android开发工程师',	'2015-01-03 15:30:38',	'2015-02-19 09:29:38'),
+(3,	'ios开发工程师',	'2015-01-03 15:30:44',	'2015-02-19 09:29:46');
+
+DROP TABLE IF EXISTS `zl_tag`;
+CREATE TABLE `zl_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `pinyin` varchar(200) DEFAULT NULL,
+  `zl_count` int(11) DEFAULT '0',
+  `follow_count` int(11) NOT NULL DEFAULT '0',
+  `is_public` tinyint(1) DEFAULT '1',
+  `score_version` int(11) DEFAULT '0' COMMENT 'score版本',
+  `zl_score` float DEFAULT NULL COMMENT '当前标签分数',
+  `uid` int(11) DEFAULT NULL COMMENT '第一次创建人',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `zl_score` (`zl_score`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_tag` (`id`, `name`, `pinyin`, `zl_count`, `follow_count`, `is_public`, `score_version`, `zl_score`, `uid`, `mtime`, `ctime`) VALUES
+(5,	'Gentoo',	'Gentoo',	1,	0,	1,	2015030420,	-1552.79,	2,	'2015-03-04 20:12:08',	'2015-01-31 15:05:26'),
+(6,	'OpenConnect',	'OpenConnect',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:29',	'2015-01-31 15:05:26'),
+(7,	'VPN',	'VPN',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:29',	'2015-01-31 15:05:26'),
+(8,	'WordPress',	'WordPress',	2,	0,	1,	2015030420,	-1552.78,	2,	'2015-03-04 20:01:29',	'2015-01-31 15:59:29'),
+(9,	'Gravatar',	'Gravatar',	2,	0,	1,	2015030420,	-1552.78,	2,	'2015-03-04 20:01:29',	'2015-01-31 15:59:29'),
+(10,	'头像',	'touxiang',	2,	0,	1,	2015030420,	-1552.78,	2,	'2015-03-04 20:01:29',	'2015-01-31 15:59:29'),
+(11,	'音乐管理中心',	'yinleguanlizhongxin',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:29',	'2015-01-31 17:11:12'),
+(12,	'bass',	'bass',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:29',	'2015-01-31 17:11:12'),
+(13,	'Phonon4Qt5',	'Phonon4Qt5',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:29',	'2015-01-31 17:11:12'),
+(14,	'老版纸牌',	'laobanzhipai',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:29',	'2015-01-31 17:36:14'),
+(15,	'扫雷',	'saolei',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:36:14'),
+(16,	'空当接龙',	'kongdangjielong',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:36:14'),
+(17,	'黑白棋',	'heibaiqi',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:36:14'),
+(18,	'源代码',	'yuandaima',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:36:14'),
+(19,	'王自如',	'wangziru',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:40:30'),
+(20,	'Moto',	'Moto',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:40:30'),
+(21,	'百度输入法',	'baidushurufa',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:48:13'),
+(22,	'iOS',	'iOS',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:48:13'),
+(23,	'输入法',	'shurufa',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:31',	'2015-01-31 17:48:13'),
+(24,	'包子',	'baozi',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:32',	'2015-01-31 19:04:47'),
+(25,	'Shadowsocks',	'Shadowsocks',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:32',	'2015-01-31 19:46:05'),
+(26,	'邀请码',	'yaoqingma',	1,	0,	1,	2015030420,	-1552.77,	2,	'2015-03-04 20:01:32',	'2015-01-31 19:46:05'),
+(27,	'支付宝',	'zhifubao',	1,	0,	1,	2015030420,	-1553.13,	2,	'2015-03-04 20:01:32',	'2015-02-18 15:48:40'),
+(28,	'抢红包',	'qianghongbao',	1,	0,	1,	2015030420,	-1553.13,	2,	'2015-03-04 20:01:32',	'2015-02-18 15:48:41'),
+(29,	'js',	'js',	1,	0,	1,	2015030420,	-1553.14,	2,	'2015-03-04 20:01:32',	'2015-02-18 21:54:56'),
+(30,	'群晖',	'qunhui',	2,	0,	1,	2015030420,	-1553.25,	2,	'2015-03-04 20:01:32',	'2015-02-21 17:52:13'),
+(31,	'群晖<',	'qunhui<',	7,	0,	1,	2015030420,	-1553.3,	2,	'2015-03-04 20:01:32',	'2015-02-21 17:52:49'),
+(32,	'测试',	'ceshi',	10,	0,	1,	2015030420,	-1553.34,	2,	'2015-03-04 20:01:32',	'2015-02-21 17:52:49'),
+(33,	'勇者斗恶龙',	'yongzhedouelong',	4,	0,	1,	2015030420,	-1553.28,	2,	'2015-03-04 20:12:08',	'2015-02-21 17:59:51'),
+(34,	'白猫',	'baimao',	1,	0,	1,	2015030420,	-1553.25,	2,	'2015-03-04 20:12:08',	'2015-02-21 17:59:51'),
+(35,	'白猫<',	'baimao<',	3,	0,	1,	2015030420,	-1553.27,	2,	'2015-03-04 20:12:08',	'2015-02-21 18:01:02'),
+(36,	'台服中文化',	'taifuzhongwenhua',	1,	0,	1,	2015030420,	-1553.25,	2,	'2015-03-04 20:12:08',	'2015-02-21 18:01:02'),
+(37,	'台服中文化<',	'taifuzhongwenhua<',	2,	0,	1,	2015030420,	-1553.26,	2,	'2015-03-04 20:12:08',	'2015-02-21 18:01:28'),
+(38,	'信息相关',	'xinxixiangguan',	4,	0,	1,	2015030420,	-1553.28,	2,	'2015-03-04 20:12:08',	'2015-02-21 18:12:48'),
+(39,	'提取',	'tiqu',	4,	0,	1,	2015030420,	-1553.28,	2,	'2015-03-04 20:12:08',	'2015-02-21 18:12:48'),
+(40,	'',	'',	1,	0,	1,	2015030420,	-1553.24,	2,	'2015-03-04 20:01:32',	'2015-02-21 18:14:34'),
+(41,	'速度',	'sudu',	1,	0,	1,	2015030420,	-1553.24,	2,	'2015-03-04 20:01:31',	'2015-02-21 18:40:06'),
+(42,	'移动',	'yidong',	1,	0,	1,	2015030420,	-1553.24,	2,	'2015-03-04 20:01:29',	'2015-02-21 19:27:35');
+
+DROP TABLE IF EXISTS `zl_tag_ext`;
+CREATE TABLE `zl_tag_ext` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `arc_id` int(11) NOT NULL DEFAULT '0',
+  `is_publish` tinyint(1) DEFAULT '1',
+  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `arc_id` (`arc_id`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `zl_tag_ext` (`id`, `name`, `arc_id`, `is_publish`, `ctime`, `mtime`) VALUES
+(1,	'扫雷',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(2,	'编译',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(3,	'源码',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(4,	'http',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(5,	'黑白棋',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(6,	'修改',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(7,	'可以',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(8,	'空当',	13,	1,	'2015-01-31 17:36:15',	'2015-01-31 17:36:15'),
+(9,	'对话',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(10,	'Moto',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(11,	'自如',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(12,	'总裁',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(13,	'回归',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(14,	'感觉',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(15,	'独家专访',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(16,	'三星',	14,	1,	'2015-01-31 17:40:31',	'2015-01-31 17:40:31'),
+(17,	'输入法',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(18,	'百度',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(19,	'存在',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(20,	'红点',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(21,	'什么',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(22,	'拼音',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(23,	'太强',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(24,	'键盘',	15,	1,	'2015-01-31 17:48:14',	'2015-01-31 17:48:14'),
+(25,	'包子',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(26,	'天天',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(27,	'辅以',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(28,	'奇想',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(29,	'突发',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(30,	'好久',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(31,	'即可',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(32,	'然后',	16,	1,	'2015-01-31 19:04:48',	'2015-01-31 19:04:48'),
+(33,	'大家',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(34,	'现在',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(35,	'需要',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(36,	'免费',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(37,	'大神',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(38,	'日本',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(39,	'美国',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(40,	'造福',	17,	1,	'2015-01-31 19:46:06',	'2015-01-31 19:46:06'),
+(41,	'关闭',	18,	1,	'2015-02-18 15:48:43',	'2015-02-18 15:48:43'),
+(42,	'知能',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(43,	'流氓',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(44,	'权限',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(45,	'支付',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(46,	'无法',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(47,	'通知',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(48,	'应用',	18,	1,	'2015-02-18 15:48:44',	'2015-02-18 15:48:44'),
+(49,	'左下角',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(50,	'渲染',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(51,	'预览',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(52,	'Markdown',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(53,	'提交',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(54,	'实际',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(55,	'之前',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(56,	'效果',	19,	1,	'2015-02-18 21:54:56',	'2015-02-18 21:54:56'),
+(57,	'不如',	20,	1,	'2015-02-21 17:52:13',	'2015-02-21 17:52:13'),
+(58,	'直接',	20,	1,	'2015-02-21 17:52:13',	'2015-02-21 17:52:13'),
+(59,	'好用',	20,	1,	'2015-02-21 17:52:13',	'2015-02-21 17:52:13'),
+(60,	'功能',	20,	1,	'2015-02-21 17:52:13',	'2015-02-21 17:52:13'),
+(61,	'播放',	20,	1,	'2015-02-21 17:52:13',	'2015-02-21 17:52:13'),
+(62,	'迅雷',	20,	1,	'2015-02-21 17:52:14',	'2015-02-21 17:52:14'),
+(63,	'鸡肋',	20,	1,	'2015-02-21 17:52:14',	'2015-02-21 17:52:14'),
+(64,	'白猫',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(65,	'邀请',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(66,	'日文',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(67,	'中文化',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(68,	'勇者',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(69,	'wcproject',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(70,	'CSRN289UU',	21,	1,	'2015-02-21 17:59:51',	'2015-02-21 17:59:51'),
+(71,	'提取',	22,	1,	'2015-02-21 18:12:48',	'2015-02-21 18:12:48'),
+(72,	'文本',	22,	1,	'2015-02-21 18:12:48',	'2015-02-21 18:12:48'),
+(73,	'时间',	22,	1,	'2015-02-21 18:12:48',	'2015-02-21 18:12:48'),
+(74,	'通用性',	22,	1,	'2015-02-21 18:12:49',	'2015-02-21 18:12:49'),
+(75,	'信息',	22,	1,	'2015-02-21 18:12:49',	'2015-02-21 18:12:49'),
+(76,	'现成',	22,	1,	'2015-02-21 18:12:49',	'2015-02-21 18:12:49'),
+(77,	'头绪',	22,	1,	'2015-02-21 18:12:49',	'2015-02-21 18:12:49'),
+(78,	'匹配',	22,	1,	'2015-02-21 18:12:49',	'2015-02-21 18:12:49'),
+(79,	'移动',	24,	1,	'2015-02-21 19:27:35',	'2015-02-21 19:27:35'),
+(80,	'标题',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(81,	'要点',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(82,	'长度',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(83,	'必要',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(84,	'清楚',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(85,	'描述',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(86,	'事情',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15'),
+(87,	'已经',	25,	1,	'2015-02-28 23:07:15',	'2015-02-28 23:07:15');
+
+DROP TABLE IF EXISTS `zl_user`;
+CREATE TABLE `zl_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL DEFAULT '0',
+  `pwd` varchar(50) NOT NULL DEFAULT '0',
+  `pinyin` varchar(50) DEFAULT NULL COMMENT '拼音',
+  `nickname` varchar(50) NOT NULL DEFAULT '0',
+  `face` varchar(100) NOT NULL DEFAULT '0',
+  `coin` int(11) NOT NULL DEFAULT '0',
+  `sex` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:保密,1:男，2：女',
+  `email_validate` tinyint(4) NOT NULL DEFAULT '0',
+  `join_date` date DEFAULT NULL COMMENT '加入日期',
+  `last_login_time` timestamp NULL DEFAULT NULL COMMENT '最后登录时间',
+  `level` int(11) DEFAULT '0' COMMENT '会员等级',
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  KEY `nickname` (`nickname`),
+  KEY `email` (`email`),
+  KEY `pinyin` (`pinyin`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+
+INSERT INTO `zl_user` (`id`, `email`, `pwd`, `pinyin`, `nickname`, `face`, `coin`, `sex`, `email_validate`, `join_date`, `last_login_time`, `level`, `mtime`, `ctime`) VALUES
+(2,	'hpu423@126.com',	'90170108d69b1d40aca6924c8ded17ec',	'banxian',	'半仙',	'/public/images/face/2015/02/24/54ec7bf9bc7f3.jpg',	0,	0,	0,	'2015-01-31',	'2015-03-04 20:55:55',	99,	'2015-03-04 20:55:55',	'2015-01-31 10:59:11'),
+(3,	'23wh@163.com',	'90170108d69b1d40aca6924c8ded17ec',	'tangzhaoheshang',	'唐朝和尚',	'/public/images/face/2015/02/24/54ec24bb51e25.png',	0,	0,	0,	'2015-01-31',	'2015-02-24 15:02:09',	NULL,	'2015-02-24 15:14:03',	'2015-01-31 19:06:33');
+
+-- 2015-03-04 20:56:43
