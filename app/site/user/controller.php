@@ -2,6 +2,7 @@
 
 class site_user_controller extends zl_controller
 {
+
     public $layout="main";
     function login()
     {

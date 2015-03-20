@@ -540,9 +540,11 @@ class zl_pdo
         $whereSql = $whereSql ? " WHERE " . $whereSql : "";
 
         $tableName = $this->getTableName();
+
         $sql = "SELECT * FROM `{$tableName}` " . $whereSql;
         if ($orderBy) $sql .= " ORDER BY " . $orderBy;
         self::$_sql[] = $sql;
+
         $key = base64_encode($sql);
         if(isset(self::$sqlinstance[$key]) && self::$sqlinstance[$key]) return self::$sqlinstance[$key];
         $result = $this->query($sql)->fetch();

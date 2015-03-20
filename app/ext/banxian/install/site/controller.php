@@ -22,8 +22,8 @@ class ext_banxian_install_site_controller extends zl_ext_controller
     }
 
     function config(){
-//        error_reporting(0);
-//        set_time_limit(0);
+        error_reporting(0);
+        set_time_limit(0);
         $this->dbHost = "";
         $this->dbPort = "";
         $this->dbName = "";

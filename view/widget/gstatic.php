@@ -1,4 +1,5 @@
 <link rel="shortcut icon" href="/favicon.ico">
+<meta property="qc:admins" content="3446246161006375" />
 <!--[if IE ]>
 <style type="text/css">
     #ie6-warning{width:100%;top:0;left:0;background:#ffffe1;padding:5px 0;font-size:12px}

@@ -18,10 +18,10 @@
 <?php
 $user = site_user_service::service()->getLogin();
 ?>
-<ul class="nav navbar-right top-nav topmenu">
     <?php if($user):
         $notices = site_user_service::service()->getNotice($user['id']);
         ?>
+        <ul class="nav navbar-right top-nav topmenu">
     <li class="dropdown">
         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b> <?php if($notices): ?><b style="color: RGB(255, 113, 112);font-size: 20px;">●</b><?php endif; ?></a>
         <ul class="dropdown-menu message-dropdown">
@@ -63,7 +63,9 @@ $user = site_user_service::service()->getLogin();
 <!--            <li><a href="#">BUG反馈及建议</a></li>-->
         </ul>
     </li>
+</ul>
         <?php else: ?>
+    <ul class="mynav navbar-right my-top-nav topmenu">
     <li>
         <a href="<?php echo url("login");?>">
             登录
@@ -74,8 +76,9 @@ $user = site_user_service::service()->getLogin();
             注册
         </a>
     </li>
+        <li><a href="<?php echo url("qqlogin");?>" class="openqq" title="用QQ帐号登录"> <img width="20" height="20" src="<?php echo img("/public/images/bg/qq.jpg") ?>"></a></li>
+    </ul>
     <?php endif;?>
-</ul>
 <ul class="nav navbar-right top-nav mobilemenu">
     <?php if($user):?>
     <li class="dropdown">
@@ -122,6 +125,7 @@ $user = site_user_service::service()->getLogin();
             ?>
             <li><a href="<?php echo url("login");?>">登录</a></li>
             <li><a href="<?php echo url("register");?>">注册</a></li>
+            <li><a href="<?php echo url("qqlogin");?>">QQ联合登陆</a></li>
         </ul>
     </li>
     <?php endif;?>

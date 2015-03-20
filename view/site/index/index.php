@@ -125,7 +125,7 @@ echo zl_widget::widget()->create("user_panel");
                 <ul class="ul-row">
                     <?php if($most): ?>
                         <?php foreach($most as $v):?>
-                            <li > <a href="<?php echo url("/t-1-".$v['name']) ?>" class=" label label-tag "><?php echo $v['name'];?><span class="badge"><?php echo $v['zl_count'];?></span></a></li>
+                            <li > <a href="<?php echo url("/t-1-".$v['name']) ?>" class=" label label-tag "><?php echo $v['name'];?></a></li>
                         <?php endforeach;?>
                     <?php endif;?>
                 </ul>

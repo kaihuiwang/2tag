@@ -111,6 +111,43 @@ a:active{
     white-space: normal;
 }
 
+
+.my-top-nav {
+    display: block;
+    padding: 15px 10px;
+    height: 50px;
+    line-height: 10px;
+}
+
+.my-top-nav > li {
+    display: inline-block;
+    float: left;
+}
+
+.my-top-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+
+.my-top-nav > .open > .dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.my-top-nav > .open > .dropdown-menu > li > a {
+    white-space: normal;
+}
+
 ul.message-dropdown {
     padding: 0;
     max-height: 250px;
@@ -167,9 +204,13 @@ ul.alert-dropdown {
     padding-bottom:10px;
     line-height:10px;
 }
-
 .nav > li > a{
     padding:10px 10px 10px 20px;
+}
+
+.mynav > li > a{
+    padding:10px 10px 10px 20px;
+    margin-top: 10px;
 }
 
 /* Flot Chart Containers */
@@ -739,9 +780,10 @@ footer{
     list-style: circle;
     padding-left: 10px;
 }
-/******zishiying********/
-.topmenu{
+.openqq{
+margin-left: -10px;
 }
+/******zishiying********/
 .mobilemenu{
     display: none;
 }

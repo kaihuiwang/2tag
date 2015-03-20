@@ -59,6 +59,10 @@ class site_user_service extends zl_service
         return zl_session::get(self::ZOLA_LOGIN_SESSION_KEY);
     }
 
+    function getUserInfo(){
+
+    }
+
     function getLogin()
     {
         $userInfo = $this->isLogin();

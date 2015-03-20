@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `2tag_ext_backup`;
 CREATE TABLE `2tag_ext_backup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(20) NOT NULL,
