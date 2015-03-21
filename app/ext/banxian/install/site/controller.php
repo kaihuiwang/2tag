@@ -78,9 +78,8 @@ class ext_banxian_install_site_controller extends zl_ext_controller
                 }
             }
             if(!zl_tool_error::lastError()){
-                $this->redirect("install/success");
+                $this->redirect("install/success", 200);
             }
-
         }
         $this->display();
     }

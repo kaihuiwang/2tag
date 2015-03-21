@@ -119,17 +119,30 @@ function controller($routeName, $runActionStr)
     $regxArr = explode(" ", $regx);
     if (count($regxArr) == 1) {
         $regx = array_shift($regxArr);
-        $urlregx = url($regx);
+        $urlregx = urlnodir($regx);
     } else {
         $requestMethod = strtoupper(array_shift($regxArr));
         $request = array_shift($regxArr);
-        $urlrequest = url($request);
+        $urlrequest = urlnodir($request);
 
         $regx = $requestMethod . " " . $request;
         $urlregx = $requestMethod . " " . $urlrequest;
     }
     $regx = stripslashes($regx);
     $urlregx = stripslashes($urlregx);
+    $runStr='';
+    if($regx=='GET (/)' && ($regx!=$urlregx)){
+        $runStr = '
+        zl::route("GET (/)", function (){
+            zl::set("current_route","GET (/)");
+            zl::set("current_route_name","site.index.index");
+            zl_hook::run("route_match");
+            $obj=new site_index_controller();
+            $controller = get_class($obj);
+            $controllerArr = explode("_",$controller);
+            $obj->index();
+        });';
+    }
 
     $before = null;
     $after = null;
@@ -172,7 +185,7 @@ function controller($routeName, $runActionStr)
         $str .= "runMethod('" . $after . "');\r\n";
     }
 
-    $runStr = "zl::route(\"" . $urlregx . "\", function (";
+    $runStr .= "\r\nzl::route(\"" . $urlregx . "\", function (";
     if ($arr) {
         foreach ($arr as $v) {
             $runStr .= "$" . $v . ",";
@@ -209,6 +222,7 @@ function writePhp($path, $phpcode)
     $phpstr = '<?php' . PHP_EOL . $phpcode . PHP_EOL;
     if(!is_writable($path) && is_file($path)) throwException($path."文件不可写");
     file_put_contents($path, $phpstr, LOCK_EX);
+    chmod($path,0777);
 }
 
 function apache_module_exists($module)
@@ -239,17 +253,20 @@ function url($url,$params=array())
             if (isApache()) {
                 //是否开启rewrite--apache
                 if (apache_module_exists("mod_rewrite")) {
-                    return str_replace("//", "/", $dir . $url.$param);
+                    $rurl=str_replace("//", "/", $dir . $url.$param);
                 } else {
-                    return str_replace("//", "/", $dir . "index.php" . $url.$param);
+                    $rurl=str_replace("//", "/", $dir . "/index.php" . $url.$param);
                 }
             } else {
-                return str_replace("//", "/", $dir . $url);
+                $rurl=str_replace("//", "/", $dir . $url);
             }
         } else {
-            return str_replace("//", "/", $dir . "index.php" . $url.$param);
+            $rurl=str_replace("//", "/", $dir . "/index.php" . $url.$param);
         }
-    };
+        $rurl= rtrim($rurl,"/");
+        return $rurl;
+    }
+
     $url = trim($url, "/");
     $url = $url!="/" && $url!="(/)"?"/".$url:$url;
 
@@ -259,14 +276,32 @@ function url($url,$params=array())
             if (apache_module_exists("mod_rewrite")) {
                 return str_replace("//", "/", $dir . $url.$param);
             } else {
-                return str_replace("//", "/", $dir . "index.php" . $url.$param);
+                return str_replace("//", "/", $dir . "/index.php" . $url.$param);
             }
         } else {
             return str_replace("//", "/", $dir . $url);
         }
     } else {
-        return str_replace("//", "/", $dir . "index.php" . $url.$param);
+        return str_replace("//", "/", $dir . "/index.php" . $url.$param);
     }
+}
+
+
+function getDir(){
+    $dir = dirname($_SERVER['PHP_SELF']);
+    $dirArr = explode("index.php",$dir);
+    $dir = array_shift($dirArr);
+    $dir = str_replace("\\", "/", $dir);
+    $dir = str_replace("//", "/", $dir);
+    return $dir;
+}
+
+function urlnodir($url,$params=array()){
+    $url = url($url,$params);
+    $dir = getDir();
+    $url = str_replace($dir,"/",$url);
+    $url = str_replace("//", "/", $url);
+    return $url;
 }
 
 function pagiUrl($page, $pageCount,$currentUrl=''){
@@ -415,10 +450,11 @@ function script($url,$extName='')
     $dir = array_shift($dirArr);
     $dir = str_replace("\\", "/", $dir);
     if(!$extName){
-        $path = $dir .getConfig("app.public_path") . "/" . $url;
+        $path = $dir ."/".getConfig("app.public_path") . "/" . $url;
     }else{
-        $path = $dir ."app/ext/".$extName."/".getConfig("app.public_path") . "/" . $url;
+        $path = $dir ."/app/ext/".$extName."/".getConfig("app.public_path") . "/" . $url;
     }
+    $path = str_replace("//", "/", $path);
     $v = zl::config()->get("app.static_version");
     return "<script src=\"" . $path . "?v=" . $v . ".js\"></script>" . PHP_EOL;
 }
@@ -431,11 +467,11 @@ function style($url,$extName='')
     $dir = array_shift($dirArr);
     $dir = str_replace("\\", "/", $dir);
     if(!$extName){
-        $path = $dir .getConfig("app.public_path") . "/" . $url;
+        $path = $dir ."/".getConfig("app.public_path") . "/" . $url;
     }else{
-        $path =  $dir ."app/ext/".$extName."/".getConfig("app.public_path") . "/" . $url;
+        $path =  $dir ."/app/ext/".$extName."/".getConfig("app.public_path") . "/" . $url;
     }
-
+    $path = str_replace("//", "/", $path);
     $v = zl::config()->get("app.static_version");
     return "<link rel=\"stylesheet\" type='text/css' href=\"" . $path . "?v=" . $v . ".css\"/>" . PHP_EOL;
 }
@@ -488,7 +524,8 @@ function img($url)
     $dir = dirname($_SERVER['PHP_SELF']);
     $dir = str_replace("\\", "/", $dir);
     $dir = str_replace("index.php", "", $dir);
-    $path = $dir . $url;
+    $path = $dir . "/".$url;
+    $path = str_replace("//","/",$path);
     return $path;
 }
 

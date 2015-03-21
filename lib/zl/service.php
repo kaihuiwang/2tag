@@ -28,7 +28,7 @@ class zl_service
 
     function redirect($url, $code = 200)
     {
-        return zl::redirect(url($url), $code);
+        return zl::redirect(urlnodir($url), $code);
     }
 
     function showJson($status=1,$data=array()){

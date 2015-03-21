@@ -1,7 +1,7 @@
 <?php
 return array(
 	//普通
-    "site.index.index" => array("route" => "get (/)", "use" => "site_index_controller@index"),
+    "site.index.index" => array("route" => "(/)", "use" => "site_index_controller@index"),
     "site.index.index_ptag" => array("route" => "get /@p:[0-9]{1,}(-@tag)", "use" => "site_index_controller@index@p@tag"),
     "site.index.captcha" => array("route" => "get|post /captcha/@salt", "use" => "site_index_controller@captcha@salt"),
     "site.user.login" => array("route" => "get|post /login", "use" => "site_user_controller@login"),
