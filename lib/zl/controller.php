@@ -36,7 +36,7 @@ class zl_controller
 
     function redirect($url, $code = 200)
     {
-        return zl::redirect(url($url), $code);
+        return zl::redirect(urlnodir($url), $code);
     }
 
     function redirectAll($url, $code = 200)

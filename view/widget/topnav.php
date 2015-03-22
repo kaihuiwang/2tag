@@ -76,7 +76,7 @@ $user = site_user_service::service()->getLogin();
             注册
         </a>
     </li>
-        <li><a href="<?php echo url("qqlogin");?>" class="openqq" title="用QQ帐号登录"> <img width="20" height="20" src="<?php echo img("/public/images/bg/qq.jpg") ?>"></a></li>
+        <?php echo zl_hook::run("top_nav_after"); ?>
     </ul>
     <?php endif;?>
 <ul class="nav navbar-right top-nav mobilemenu">
@@ -125,7 +125,7 @@ $user = site_user_service::service()->getLogin();
             ?>
             <li><a href="<?php echo url("login");?>">登录</a></li>
             <li><a href="<?php echo url("register");?>">注册</a></li>
-            <li><a href="<?php echo url("qqlogin");?>">QQ联合登陆</a></li>
+            <?php echo zl_hook::run("top_nav_after_mobile"); ?>
         </ul>
     </li>
     <?php endif;?>

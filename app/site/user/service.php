@@ -85,9 +85,9 @@ class site_user_service extends zl_service
                 echo "<script>location.assign('".url("login")."')</script>";exit;
             }else{
                 if(!isAjax()){
-                    $loginUrl = url("/login")."?url=".urlencode(getCurrentUrl());
+                    $loginUrl = urlnodir("/login")."?url=".urlencode(getCurrentUrl());
                 }else{
-                    $loginUrl = url("/login");
+                    $loginUrl = urlnodir("/login");
                 }
                 zl::redirect($loginUrl, 200);
             }

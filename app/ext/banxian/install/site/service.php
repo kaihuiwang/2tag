@@ -45,7 +45,7 @@ class ext_banxian_install_site_service extends zl_ext_service{
         }
         $newPath = ROOT_PATH."/config/".ENVIRONMENT;
         mkdir($newPath,0777,true);
-        zl::redirect(url("install"), 200);
+        zl::redirect(urlnodir("install"), 200);
     }
 
     function check(){

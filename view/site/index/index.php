@@ -94,7 +94,7 @@ echo zl_widget::widget()->create("user_panel");
             </div>
         </div>
         <div class="panel">
-            <div class="panel-heading">今日主题</div>
+            <div class="panel-heading">最新主题</div>
             <div class="panel-body">
                 <?php if($todayarc):?>
                     <?php foreach($todayarc as $v):?>

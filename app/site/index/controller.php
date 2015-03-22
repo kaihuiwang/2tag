@@ -40,7 +40,7 @@ class site_index_controller extends zl_controller
         $this->most = zl::dao("tag")->gets(array("is_publish"=>1),"zl_score DESC",0,40);
 
         //今天按时间最多主题
-        $this->todayarc = zl::dao("arc")->gets(array("ctime"=>array(">=",date('Y-m-d 00:00:00'))),"ctime DESC",0,15);
+        $this->todayarc = zl::dao("arc")->gets(array(),"ctime DESC",0,15);
         //公告
         $this->sitenotice = zl::dao("notice")->gets(array("show_time"=>array("<",date('Y-m-d H:i:s')),"zl_type"=>1),"ctime DESC",0,3);
         //社区运行状态
