@@ -30,14 +30,23 @@ class zl extends Flight
 
     static function render($path, $param = null, $alias = null, $viewpath = null)
     {
-        if (!$viewpath) $viewpath = ROOT_PATH . "/view";
+        if (!$viewpath){
+            $tpl = zl::config()->get("app.tpl");
+            $viewpath = ROOT_PATH . "/view/".$tpl;
+        }
         return parent::render($path, $param, $alias, $viewpath);
     }
 
 
     static function renderExt($path, $param = null, $alias = null)
     {
-        return self::render($path, $param, $alias, ROOT_PATH . "/app/ext/" . zl::get("ext_name") . "/view");
+        $tpl = zl::config()->getExt("app.tpl");
+        if($tpl){
+            $viewpath = ROOT_PATH . "/app/ext/" . zl::get("ext_name") . "/view/".$tpl;
+        }else{
+            $viewpath = ROOT_PATH . "/app/ext/" . zl::get("ext_name") . "/view";
+        }
+        return self::render($path, $param, $alias,$viewpath);
     }
 
     static function getParam($str = null,$default=null)

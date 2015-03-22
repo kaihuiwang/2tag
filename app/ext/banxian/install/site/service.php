@@ -171,7 +171,7 @@ class ext_banxian_install_site_service extends zl_ext_service{
         $sqlPath = ROOT_PATH."/app/ext/banxian/install/data/sql.sql";
         try{
             unset(zl_pdo::$instance[0]);
-            zl::dao()->import($sqlPath,"CREATE TABLE `2tag_","CREATE TABLE `$pre");
+            zl::dao()->import($sqlPath,"`2tag_","`$pre");
             $data=array();
             $data[] = "truncate table ".$pre."admin_user";
             $data[] = "truncate table ".$pre."access";
@@ -204,7 +204,7 @@ class ext_banxian_install_site_service extends zl_ext_service{
                 foreach($extNames as $v){
                     $path = ROOT_PATH."/app/ext/".$v."/data/sql.sql";
                     if(is_file($path)){
-                        zl::dao()->import($path,"CREATE TABLE `zl_","CREATE TABLE `$pre");
+                        zl::dao()->import($path,"`2tag_","`$pre");
                     }
                 }
             }

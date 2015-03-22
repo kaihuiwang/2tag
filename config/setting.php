@@ -28,6 +28,8 @@ return array(
             "mail.smtp.port"=>array("邮件SMTP服务器端口","text"),
             "mail.smtp.timeout"=>array("邮件SMTP服务器超时时间","text"),
             "memcached"=>array("memcache服务器信息，多个用英文逗号','隔开","text"),
+            "tpl"=>array("网站模版","text"),
+            "arc_timeout"=>array("文章多长时间不能编辑，单位s（秒）","text"),
         ),
         "cache"=>array(
             "storage"=>array("缓存保存方式","select",array("auto"=>"自动", "apc"=>"apc" ,"xcache"=>"xcache","wincache"=>"wincache" ,"memcache"=>"memcache" ,"memcached"=>"memcached" ,"files"=>"文件")),

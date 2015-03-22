@@ -41,4 +41,5 @@ return array(
     ),
     'memcached' => 'localhost:11211',
     "arc_timeout"=>3600,
+    "tpl"=>"default",
 );

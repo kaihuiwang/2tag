@@ -70,6 +70,7 @@ class zl_config
             }
         }
 
+        if(!is_file($commonPath)) return null;
         $configs = include($commonPath);
         if ($arr) {
             foreach ($arr as $v) {

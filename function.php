@@ -263,7 +263,7 @@ function url($url,$params=array())
         } else {
             $rurl=str_replace("//", "/", $dir . "/index.php" . $url.$param);
         }
-        $rurl= rtrim($rurl,"/");
+        $rurl= $rurl!='/'?rtrim($rurl,"/"):$rurl;
         return $rurl;
     }
 

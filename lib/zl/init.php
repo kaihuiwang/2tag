@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Shanghai');
 include_once ROOT_PATH . "/function.php";
 include_once ROOT_PATH . "/lib/zl/config.php";
 include_once ROOT_PATH . "/lib/zl/zl.php";
