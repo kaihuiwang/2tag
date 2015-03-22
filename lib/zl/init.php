@@ -72,9 +72,10 @@ class zl_init
             !empty($_COOKIE) && add_s($_COOKIE);
             !empty($_FILES) && add_s($_FILES);
         }
-
+        $tpl = zl::config()->get("app.tpl");
+        $tpl = $tpl?$tpl."/":"";
         zl::set('flight.log_errors', $this->isdebug());
-        zl::set('flight.views.path', ROOT_PATH . "/view");
+        zl::set('flight.views.path', ROOT_PATH . "/view/".$tpl);
 
         $url = isset($_SERVER["REQUEST_URI"])? $_SERVER["REQUEST_URI"] : "";
         if(!trim($url,"/")){
@@ -199,10 +200,5 @@ class zl_init
         }
     }
 
-    function removeUTF8Bom($string)
-    {
-        if (substr($string, 0, 3) == pack('CCC', 239, 187, 191)) return substr($string, 3);
-        return $string;
-    }
 
 }

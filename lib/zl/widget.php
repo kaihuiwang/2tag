@@ -19,17 +19,18 @@ class zl_widget
 
     static function create($widgetName, $params = null,$extName='')
     {
-        $widgetNameTmp = $widgetName;
         $widgetName = "widget." . $widgetName;
         $widgetTmp = str_replace('.', '/', $widgetName);
         $name = 'widget_' . str_replace('.', '_', $widgetName);
         $extNameTmp = $extName?$extName:zl::get("ext_name");
         if ($extNameTmp) {
-            $path = ROOT_PATH . "/app/ext/" . $extNameTmp . "/view/".$widgetTmp.".php";
+            $tpl = zl::config()->getExt("app.tpl");
+            $tpl = $tpl?$tpl."/":"";
+            $path = ROOT_PATH . "/app/ext/" . $extNameTmp . "/view/".$tpl.$widgetTmp.".php";
             if(!is_file($path)){
                 zl::render($widgetTmp, is_object($params) ? null : $params, $name);
             }else{
-                zl::render($widgetTmp, $params, null, ROOT_PATH . "/app/ext/" . $extNameTmp . "/view/");
+                zl::render($widgetTmp, $params, null, ROOT_PATH . "/app/ext/" . $extNameTmp . "/view/".$tpl);
             }
 
         } else {
