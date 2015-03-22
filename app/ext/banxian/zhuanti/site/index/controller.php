@@ -122,15 +122,77 @@ class ext_banxian_zhuanti_site_index_controller extends zl_ext_controller
         $this->display();
     }
 
-    function checkzhuanti(){
+    function my_zhuanti($p=1){
+        $this->setLayout("main");
+        $uid = $this->getUid();
+        $p = (int) $p;
+        $p = $p?$p:1;
+        list($zhuanti,$markup) = zl::dao("ext_zhuanti")->pager(array("uid"=>$uid),"ctime desc",null,$p,"/my_zhuanti/@p");
+        $this->zhuanti = $zhuanti;
+        $this->markup = $markup;
+
+        $this->title = "我的专题";
+        $this->display();
+    }
+
+    function delete_zhuanti($id=0){
+        $id = (int) $id;
+        if(!$id) $this->showMsg("参数错误!");
+        $info = zl::dao("ext_zhuanti")->get(array("id"=>$id));
+        if(!$info) $this->showMsg("页面不存在!");
+        if($info['uid'] != $this->getUid())  $this->showMsg("你没有此操作的权限!");
+        zl::dao("ext_zhuanti_ext")->delete(array("zhuanti_id"=>$id));
+        zl::dao("ext_zhuanti")->delete(array("id"=>$id));
+        $this->redirect("/my_zhuanti");
+    }
+
+    function edit_zhuanti($id=0){
         $this->disableLayout();
-        $name = trim($this->getParam("name"));
-        if(!$name) exit("专题名称不能为空!");
-        $check = zl::dao("ext_zhuanti")->get(array("uid"=>$this->getUid(),"name"=>$name));
-        if($check){
-            exit("专题名称已存在!");
+        $id = (int) $id;
+        if(!$id) $this->showMsg("参数错误!");
+        $info = zl::dao("ext_zhuanti")->get(array("id"=>$id));
+        if(!$info) $this->showMsg("页面不存在!");
+        if($info['uid'] != $this->getUid())  $this->showMsg("你没有此操作的权限!");
+        if(isPost()){
+            zl_form::csrfValidate();
+            $name = trim($this->getParam("name"));
+            if(!$name) $this->showMsg("专题名称不能为空!");
+            $check = zl::dao("ext_zhuanti")->get(array("uid"=>$this->getUid(),"name"=>$name,"id"=>array("!=",$id)));
+            if($check){
+                $this->showMsg("专题名称已存在!");
+            }else{
+                $data=array();
+                $data['uid'] = $this->getUid();
+                $data['name'] = $name;
+                zl::dao("ext_zhuanti")->update($data,array("id"=>$id));
+                $this->redirect("/my_zhuanti");
+            }
+        }
+        $this->info = $info;
+        $this->display();
+    }
+
+
+    function checkzhuanti($id=0){
+        $this->disableLayout();
+        if($id){
+            $name = trim($this->getParam("name"));
+            if(!$name) exit("专题名称不能为空!");
+            $check = zl::dao("ext_zhuanti")->get(array("uid"=>$this->getUid(),"name"=>$name,"id"=>array("!=",$id)));
+            if($check){
+                exit("专题名称已存在!");
+            }else{
+                return true;
+            }
         }else{
-            return true;
+            $name = trim($this->getParam("name"));
+            if(!$name) exit("专题名称不能为空!");
+            $check = zl::dao("ext_zhuanti")->get(array("uid"=>$this->getUid(),"name"=>$name));
+            if($check){
+                exit("专题名称已存在!");
+            }else{
+                return true;
+            }
         }
     }
 
