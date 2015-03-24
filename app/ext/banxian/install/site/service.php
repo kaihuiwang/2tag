@@ -196,12 +196,14 @@ class ext_banxian_install_site_service extends zl_ext_service{
             foreach($data as $sql){
                 zl::dao()->getAdapter(0,0)->exec($sql);
             }
-            $sql = "INSERT INTO ".$pre."admin_user SET email = '".$admin."', pwd='".zl_md5($adminPwd)."',real_name='管理员',pinyin='guanliyuan',nickname='管理员',email_validate=1,is_admin=1,join_date='".date('Y-m-d')."',mtime='".date('Y-m-d H:i:s')."',ctime='".date('Y-m-d H:i:s')."'";
+            $sql = "INSERT INTO ".$pre."admin_user SET email = '".$admin."', pwd='".zl_md5($adminPwd)."',
+            real_name='管理员',pinyin='guanliyuan',nickname='管理员',email_validate=1,is_admin=1,join_date='".date('Y-m-d')."',mtime='".date('Y-m-d H:i:s')."',ctime='".date('Y-m-d H:i:s')."'";
             zl::dao()->getAdapter(0,0)->exec($sql);
             $ext = zl::config()->get("ext");
             $extNames = $ext['names'];
             if($extNames){
                 foreach($extNames as $v){
+                    if($v =='banxian/install') continue;
                     $path = ROOT_PATH."/app/ext/".$v."/data/sql.sql";
                     if(is_file($path)){
                         zl::dao()->import($path,"`2tag_","`$pre");

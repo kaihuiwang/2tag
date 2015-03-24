@@ -639,7 +639,7 @@ class site_index_controller extends zl_controller
         if(!$info) $this->showMsg("页面不存在!",0,0,"/me");
         if($info['uid']!=$this->getUid()) $this->showMsg("非法操作!",0,0,"/me");
         $difftime = time()-strtotime($info['ctime']);
-        if($difftime>300){
+        if($difftime>zl::$configApp['arc_timeout']){
             $this->showMsg("主题删除必须在".zl::$configApp['arc_timeout']."秒内",0,0,"/me");
         }
 

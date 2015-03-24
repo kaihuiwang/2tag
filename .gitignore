@@ -1,6 +1,2 @@
 /.idea
-/public/images/face
-/data
-/adminer
-/data/cache
-/data/logs
+/config/my
