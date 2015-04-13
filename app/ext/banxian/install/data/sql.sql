@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.25 (64 bit)
 MySQL - 5.6.19 : Database - 2tag
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -81,6 +82,8 @@ CREATE TABLE `2tag_arc` (
   `uid` int(11) NOT NULL DEFAULT '0',
   `reply_count` int(11) NOT NULL DEFAULT '0',
   `view_count` int(11) NOT NULL DEFAULT '0' COMMENT '访问量',
+  `good_number` int(11) DEFAULT '0' COMMENT '顶数目',
+  `bad_number` int(11) DEFAULT '0' COMMENT '踩数目',
   `is_publish` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0未发布，1已发布',
   `tags` varchar(100) DEFAULT NULL COMMENT '标签列表',
   `zl_score` double DEFAULT NULL COMMENT '当前文章分数',
@@ -92,7 +95,7 @@ CREATE TABLE `2tag_arc` (
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 /*Data for the table `2tag_arc` */
 
@@ -348,6 +351,18 @@ CREATE TABLE `2tag_user` (
   KEY `email` (`email`),
   KEY `pinyin` (`pinyin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+
+DROP TABLE IF EXISTS `2tag_arc_digg`;
+CREATE TABLE `2tag_arc_digg` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `zl_type` TINYINT(1) DEFAULT '1',
+  `uid` INT(11) DEFAULT NULL,
+  `arc_id` INT(11) DEFAULT NULL,
+  `ctime` TIMESTAMP NULL DEFAULT NULL,
+  `mtime` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_uid_arc_id` (`uid`,`arc_id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 /*Data for the table `2tag_user` */
 

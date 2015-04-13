@@ -40,7 +40,7 @@ class site_index_service extends zl_service
         $check = zl::dao("arc")->get(array("id"=>$id));
         if(!$check) return ;
         $version = date('YmdH');
-        $num = $check['view_count']+$check['reply_count']*3;
+        $num = ($check['good_number']-$check['bad_number'])*3;
         $score = $this->getScore($num,date('Y-m-d H:i:s'),$check['ctime'],$check['zl_score_base']);
 //        exit($score);
         zl::dao("arc")->update(array("zl_score"=>$score,"score_version"=>$version),array("id"=>$id));

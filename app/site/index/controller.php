@@ -6,7 +6,7 @@ class site_index_controller extends zl_controller
     {
         $this->setLayout("main");
         $this->title="首页";
-        $this->hotTag = zl::dao("tag")->gets(array("is_publish"=>1)," zl_count DESC ",0,20);
+        $this->hotTag = zl::dao("tag")->gets(array("is_publish"=>1)," zl_count DESC ",0,10);
         $where = array();
         $orderBy = "zl_score DESC,id DESC";
         if($tag){
@@ -133,6 +133,7 @@ class site_index_controller extends zl_controller
                 site_index_service::service()->updateArcScore($arc_id);
                 $tags=",";
                 foreach($tagsArr as $v){
+                    $v = strtolower($v);
                     $check = zl::dao("tag")->get(array("name"=>$v));
                     if($check){
                         zl::dao("tag")->inCrease("zl_count",array("id"=>$check['id']));
@@ -168,6 +169,38 @@ class site_index_controller extends zl_controller
         $this->display("site/index/add");
     }
 
+    function vgood($arcId=0){
+        $this->disableLayout();
+        $arcId = intval($arcId);
+        if(!$arcId) $this->showMsg("参数错误");
+        $check = zl::dao("arc_digg")->get(array("uid"=>$this->getUid(),"arc_id"=>$arcId));
+        if($check)  $this->redirect("/v-1-".$arcId);
+        zl::dao("arc")->inCrease("good_number",array("id"=>$arcId));
+        $data=array();
+        $data['zl_type'] = 1;
+        $data['uid'] = $this->getUid();
+        $data['arc_id'] = $arcId;
+        zl::dao("arc_digg")->insert($data);
+        site_index_service::service()->updateArcScore($arcId);
+        $this->redirect("/v-1-".$arcId);
+    }
+
+    function vbad($arcId=0){
+        $this->disableLayout();
+        $arcId = intval($arcId);
+        if(!$arcId) $this->showMsg("参数错误");
+        $check = zl::dao("arc_digg")->get(array("uid"=>$this->getUid(),"arc_id"=>$arcId));
+        if($check)  $this->redirect("/v-1-".$arcId);
+        zl::dao("arc")->inCrease("bad_number",array("id"=>$arcId));
+        $data=array();
+        $data['zl_type'] = 2;
+        $data['uid'] = $this->getUid();
+        $data['arc_id'] = $arcId;
+        zl::dao("arc_digg")->insert($data);
+        site_index_service::service()->updateArcScore($arcId);
+        $this->redirect("/v-1-".$arcId);
+    }
+
     function parsemarkdown(){
         $content = $this->getParam("content");
         if(!$content) $this->showJsonp(0,"正文内容为空!");
@@ -179,6 +212,7 @@ class site_index_controller extends zl_controller
         $term = $this->getParam("term");
         $term = strtolower(urldecode($term));
         if(!$term){ echo $this->json(array());exit;};
+        $term = strtolower($term);
         $where = array();
         if(preg_match('/[a-zA-Z]/',$term)){
             $where['pinyin'] = array("like",$term."%","or");
@@ -200,6 +234,7 @@ class site_index_controller extends zl_controller
         $term = $this->getParam("term");
         $term = strtolower(urldecode($term));
         if(!$term){ echo $this->json(array());exit;};
+        $term = strtolower($term);
         $where = array();
         if(preg_match('/[a-zA-Z]/',$term)){
             $where['pinyin'] = array("like",$term."%","or");
@@ -241,17 +276,6 @@ class site_index_controller extends zl_controller
         $this->nextarc = zl::dao("arc")->get(array("zl_score"=>array("<",$arc['zl_score']),"id"=>array("!=",$id),"is_publish"=>1),"zl_score desc,id desc");
 
         $tagExsNames = zl::dao("tag_ext")->getField("name",array("arc_id"=>$id,"is_publish"=>1));
-        $likeWhere=array();
-        if($tagExsNames){
-            $arcIds = zl::dao("tag_ext")->getField("arc_id",array("name"=>array("in",$tagExsNames),"arc_id"=>array("!=",$id)));
-            if($arcIds) $likeWhere['id']=array("in",$arcIds);
-        }
-        $orderBy = "zl_score DESC";
-        if(!$likeWhere){
-            $orderBy = "rand()";
-        }
-        $likeWhere['is_publish'] = 1;
-        $this->likearc = zl::dao("arc")->gets($likeWhere,$orderBy,0,15);
         
         $this->id = $id;
 
@@ -709,6 +733,7 @@ class site_index_controller extends zl_controller
                 site_index_service::service()->updateArcScore($arc_id);
                 $tags=",";
                 foreach($tagsArr as $v){
+                    $v = strtolower($v);
                     $check = zl::dao("tag")->get(array("name"=>$v));
                     if(!$check){
                         $data=array();

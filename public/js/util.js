@@ -98,8 +98,9 @@ jQuery.removeHtml = function(s){
 /**
  * 使用ajax提交数据
  */
-function ajax_post(the_url,the_param,succ_callback,ftype){
+function ajax_post(the_url,the_param,succ_callback,ftype,async){
     ftype = (typeof(ftype)== "undefined")? "jsonp":ftype;
+    async = (typeof(async)== "undefined")? "true":async;
 	$.ajax({
 		type	: 'POST',
 		cache	: false,
@@ -108,6 +109,7 @@ function ajax_post(the_url,the_param,succ_callback,ftype){
 		success	: succ_callback,
 		beforeSend:loading,
 		complete:complete,
+        async:async,
 		dataType: ftype,
 		jsonp:"jsonpcallback",
 		error	: function(html){
@@ -118,8 +120,9 @@ function ajax_post(the_url,the_param,succ_callback,ftype){
 /**
  * 使用ajax获取数据
  */
-function ajax_get(the_url,succ_callback,ftype){
+function ajax_get(the_url,succ_callback,ftype,async){
     ftype = (typeof(ftype)== "undefined")? "jsonp":ftype;
+    async = (typeof(async)== "undefined")? "true":async;
 	$.ajax({
 		type	: 'GET',
 		cache	: false,
@@ -128,6 +131,7 @@ function ajax_get(the_url,succ_callback,ftype){
 		beforeSend:loading,
 		complete:complete,
 		dataType: ftype,
+        async:async,
 		jsonp:"jsonpcallback",
 		error	: function(html){
 			//alert("获取数据失败，请稍候再试");

@@ -15,7 +15,7 @@ class admin_rbac_controller extends zl_controller{
             $where['dept'] = array("in",$deptIds);
         }
 
-        $where['email'] = array("!=",zl::config()->get("app.super_admin"));
+//        $where['email'] = array("!=",zl::config()->get("app.super_admin"));
         $orderBy = "";
         list($list,$markup) = zl::dao("admin_user")->pager($where,$orderBy);
 //        echo zl::dao("admin_user")->getSql();

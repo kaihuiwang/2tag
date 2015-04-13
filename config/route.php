@@ -19,6 +19,8 @@ return array(
     "site.index.tagsearch"=> array("route" => "get|post /tagsearch", "use" => "site_index_controller@tagsearch"),
     "site.index.indextagsearch"=> array("route" => "get|post /indextagsearch", "use" => "site_index_controller@indextagsearch"),
     "site.index.v"=> array("route" => "/v-@p-@id", "use" => "site_index_controller@v@p@id"),
+    "site.index.vgood"=> array("route" => "/vgood-@id", "use" => "site_index_controller@vgood@id", "before" => "site_user_service@logined"),
+    "site.index.vbad"=> array("route" => "/vbad-@id", "use" => "site_index_controller@vbad@id", "before" => "site_user_service@logined"),
     "site.index.deletev"=> array("route" => "/deletev-@id", "use" => "site_index_controller@deletev@id", "before" => "site_user_service@logined"),
     "site.index.editv"=> array("route" => "/editv-@id", "use" => "site_index_controller@editv@id", "before" => "site_user_service@logined"),
     "site.index.reply"=> array("route" => "/reply", "use" => "site_index_controller@reply", "before" => "site_user_service@logined"),

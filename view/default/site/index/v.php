@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-12">
     <div class="panel">
         <div class="panel-body">
             <ul class="breadcrumb">
@@ -18,16 +18,12 @@
                 <h1 style="font-size: 16px;padding-left: 10px;"><?php echo viewXss($arc['title']);?></h1>
                 <div class="height-30 padding-left-10">
                     <small class="gray">
+                        <a href="<?php echo url("/vgood-".$arc['id']); ?>" class="btn btn-default btn-sm tip btn-c" title="顶"><li class="glyphicon glyphicon-chevron-up"></li>&nbsp;&nbsp;<?php echo $arc['good_number']?$arc['good_number']:""; ?></a>
+                        <a href="<?php echo url("/vbad-".$arc['id']); ?>"  class="btn btn-default btn-sm tip btn-c" title="踩"><li class="glyphicon glyphicon-chevron-down"></li></a>
+
                         <a href="<?php echo url("/u-".$user['id']); ?>"><?php echo $user['nickname'] ?></a> · <?php echo qtime($arc['ctime']);?> · <?php echo $arc['view_count'];?> 次点击 &nbsp;
                         <?php echo zl_hook::run("arc_view",array("id"=>$arc['id'])); ?>
                     </small>
-                </div>
-                <div class="height-30 padding-left-10" style="overflow-x:hidden">
-                    <?php
-                    foreach($tags as $v):
-                        ?>
-                        <a class=" label label-tag label-tag-active  my_tag" href="<?php echo url('/t-1-'.$v['name']);?>"><?php echo $v['name']; ?></a>
-                    <?php endforeach;?>
                 </div>
             </div>
             <div>
@@ -38,6 +34,13 @@
                     <div class="gray font-10">
                         <li class="glyphicon glyphicon-warning-sign" style="color: #5cb85c"></li>&nbsp;&nbsp;转载须遵循：非商用-非衍生-保持署名 | <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC-BY-NC-ND 4.0</a>
                     </div>
+                </div>
+                <div class="height-30 padding-left-10" style="overflow-x:hidden">
+                    <?php
+                    foreach($tags as $v):
+                        ?>
+                        <a class=" label label-tag label-tag-active  my_tag" href="<?php echo url('/t-1-'.$v['name']);?>"><?php echo $v['name']; ?></a>
+                    <?php endforeach;?>
                 </div>
             </div>
             <div  id="reply">
@@ -126,38 +129,6 @@
                     </div>
                 <?php endif;?>
             </div>
-        </div>
-        </div>
-</div>
-<div class="col-md-4">
-    <?php
-   echo zl_widget::widget()->create("user_panel");
-    ?>
-    <div class="panel">
-        <div class="panel-heading">你可能喜欢</div>
-        <div class="panel-body">
-            <?php if($likearc):?>
-                <?php foreach($likearc as $v):?>
-                    <div class="cell">
-                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                            <tbody>
-                            <tr>
-                                <td width="24" valign="middle" align="center">
-                                    <a href="<?php echo url("u-".$v['uid']); ?>">
-                                        <img src="<?php echo showImg($v['uid'])?>" class="avatar img-rounded" border="0" align="default" style="max-width: 24px; max-height: 24px;"></a>
-                                </td>
-                                <td width="10"></td>
-                                <td width="auto" valign="middle">
-                <span class="item_hot_topic_title">
-                <a href="<?php echo url("v-1-".$v['id']); ?>"><?php echo viewXss($v["title"]);?></a>
-                </span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif;?>
         </div>
         </div>
 </div>
