@@ -605,12 +605,12 @@ a.dark:link, a.dark:visited, a.dark:active {
     text-decoration: none;
 }
 .btn-c{
-    padding: 0px 2px 2px 2px;
+    padding: 0px 5px 5px 5px;
     height: 20px;
     line-height: 20px;
     width: 40px;
-    color: #999;
-    margin-right: 5px;
+    color: #666;
+    margin-right: 5px;;
 }
 /*左侧菜单*/
 .sidebar-menu{
@@ -796,6 +796,8 @@ margin-left: -10px;
 .mobilemenu{
     display: none;
 }
+.menu{
+}
 @media screen and (max-width: 990px) {
     .input-search{
         width: 100px;
@@ -817,5 +819,11 @@ margin-left: -10px;
     }
     .top-nav > li > a{
         font-size: 20px;
+    }
+    .menu{
+        display: block;
+    }
+    .header{
+        padding-bottom: 30px;
     }
 }

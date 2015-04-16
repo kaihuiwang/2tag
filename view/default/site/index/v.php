@@ -18,10 +18,9 @@
                 <h1 style="font-size: 16px;padding-left: 10px;"><?php echo viewXss($arc['title']);?></h1>
                 <div class="height-30 padding-left-10">
                     <small class="gray">
-                        <a href="<?php echo url("/vgood-".$arc['id']); ?>" class="btn btn-default btn-sm tip btn-c" title="顶"><li class="glyphicon glyphicon-chevron-up"></li>&nbsp;&nbsp;<?php echo $arc['good_number']?$arc['good_number']:""; ?></a>
-                        <a href="<?php echo url("/vbad-".$arc['id']); ?>"  class="btn btn-default btn-sm tip btn-c" title="踩"><li class="glyphicon glyphicon-chevron-down"></li></a>
-
                         <a href="<?php echo url("/u-".$user['id']); ?>"><?php echo $user['nickname'] ?></a> · <?php echo qtime($arc['ctime']);?> · <?php echo $arc['view_count'];?> 次点击 &nbsp;
+                    </small>
+                    <small class="gray menu">
                         <?php echo zl_hook::run("arc_view",array("id"=>$arc['id'])); ?>
                     </small>
                 </div>
@@ -33,6 +32,10 @@
                     ?>
                     <div class="gray font-10">
                         <li class="glyphicon glyphicon-warning-sign" style="color: #5cb85c"></li>&nbsp;&nbsp;转载须遵循：非商用-非衍生-保持署名 | <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC-BY-NC-ND 4.0</a>
+                    </div>
+                    <div class="center">
+                        <a href="<?php echo url("/vgood-".$arc['id']); ?>" class="btn btn-default btn-sm  btn-c" >顶&nbsp;&nbsp;<?php echo $arc['good_number']?$arc['good_number']:""; ?></a>
+                        <a href="<?php echo url("/vbad-".$arc['id']); ?>"  class="btn btn-default btn-sm  btn-c" >踩</a>
                     </div>
                 </div>
                 <div class="height-30 padding-left-10" style="overflow-x:hidden">

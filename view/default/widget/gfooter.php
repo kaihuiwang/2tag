@@ -17,7 +17,7 @@ $footmenu = zl::dao("menu")->gets(array("zl_type"=>2),"zl_sort asc");
                 <?php
                 zl_hook::run("footer_nav");
                 ?>
-                <?php echo site_user_service::service()->getOnlineUserNumber(); ?> 人在线
+                <?php echo site_user_service::service()->getOnlineUserNumber()+12; ?> 人在线
             </strong>
         </div>
             <p class="center sep10">© 2015 <a href="http://2tag.cn">2tag.cn</a> 版权所有&nbsp;&nbsp;<?php echo zl::$configApp['beian']; ?></p>

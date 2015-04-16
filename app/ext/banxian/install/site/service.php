@@ -168,10 +168,17 @@ class ext_banxian_install_site_service extends zl_ext_service{
         foreach($data as $k=>$v){
             zl::config()->set($k,$v);
         }
-        $sqlPath = ROOT_PATH."/app/ext/banxian/install/data/sql.sql";
         try{
-            unset(zl_pdo::$instance[0]);
-            zl::dao()->import($sqlPath,"`2tag_","`$pre");
+            $ext = zl::config()->get("ext");
+            $extNames = $ext['names'];
+            if($extNames){
+                foreach($extNames as $v){
+                    $path = ROOT_PATH."/app/ext/".$v."/data/sql.sql";
+                    if(is_file($path)){
+                        zl::dao()->import($path,"`2tag_","`$pre");
+                    }
+                }
+            }
             $data=array();
             $data[] = "truncate table ".$pre."admin_user";
             $data[] = "truncate table ".$pre."access";
@@ -179,9 +186,6 @@ class ext_banxian_install_site_service extends zl_ext_service{
             $data[] = "truncate table ".$pre."data";
             $data[] = "truncate table ".$pre."dept";
             $data[] = "truncate table ".$pre."email_token";
-//            $data[] = "truncate table ".$pre."ext_favorite";
-//            $data[] = "truncate table ".$pre."ext_zhuanti";
-//            $data[] = "truncate table ".$pre."ext_zhuanti_ext";
             $data[] = "truncate table ".$pre."linked_user";
             $data[] = "truncate table ".$pre."menu";
             $data[] = "truncate table ".$pre."msg_data";
@@ -199,17 +203,6 @@ class ext_banxian_install_site_service extends zl_ext_service{
             $sql = "INSERT INTO ".$pre."admin_user SET email = '".$admin."', pwd='".zl_md5($adminPwd)."',
             real_name='管理员',pinyin='guanliyuan',nickname='管理员',email_validate=1,is_admin=1,join_date='".date('Y-m-d')."',mtime='".date('Y-m-d H:i:s')."',ctime='".date('Y-m-d H:i:s')."'";
             zl::dao()->getAdapter(0,0)->exec($sql);
-            $ext = zl::config()->get("ext");
-            $extNames = $ext['names'];
-            if($extNames){
-                foreach($extNames as $v){
-                    if($v =='banxian/install') continue;
-                    $path = ROOT_PATH."/app/ext/".$v."/data/sql.sql";
-                    if(is_file($path)){
-                        zl::dao()->import($path,"`2tag_","`$pre");
-                    }
-                }
-            }
         }catch(Exception $e){
             zl_tool_error::add($e->getMessage());
         }

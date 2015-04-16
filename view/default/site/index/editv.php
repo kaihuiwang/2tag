@@ -53,7 +53,6 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
             <div class="control-group">
                 <label class="control-label"></label>
                 <div class="controls">
-                    <button class="btn btn-default" type="button" id="preview">预览</button>
                     <button class="btn btn-success" type="submit">提交</button>
                 </div>
             </div>
