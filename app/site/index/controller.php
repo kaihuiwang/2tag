@@ -6,9 +6,9 @@ class site_index_controller extends zl_controller
     {
         $this->setLayout("main");
         $this->title="首页";
-        $this->hotTag = zl::dao("tag")->gets(array("is_publish"=>1)," zl_count DESC ",0,10);
         $where = array();
         $orderBy = "zl_score DESC,id DESC";
+        $tag = $tag?$tag:"";
         if($tag){
             $tagId = zl::dao("tag")->getField("id",array("name"=>$tag));
             if($tagId) $where['tags'] = array("like","%,".$tagId.",%");
@@ -91,6 +91,19 @@ class site_index_controller extends zl_controller
             exit('验证码错误!');
         }
        return true;
+    }
+
+    function upimg(){
+        if(isPost()){
+            if($_FILES['userfile']['tmp_name']){
+                //上传图片
+                $savePath = ROOT_PATH . "/public/images/up" . DS . date("Y") . DS . date('m') . DS . date('d'). DS;
+                $imgPaths = site_index_service::service()->upImg($savePath);
+                //截图
+                $oldPath = "/public/images/up/" . date("Y") . "/" . date('m') . "/" . date('d'). "/" . $imgPaths[0]['savename'];
+                echo $oldPath;
+            }
+        }
     }
 
 
@@ -284,6 +297,7 @@ class site_index_controller extends zl_controller
         $where=array();
         $where['arc_id'] = $id;
         $where['is_publish'] = 1;
+        $where['zl_type'] = 0;
         $orderBy = "ctime ASC";
         list($list,$markup) = zl::dao("reply")->pager($where,$orderBy,"",$p,"/v-@p-".$id);
 
@@ -301,6 +315,7 @@ class site_index_controller extends zl_controller
     function reply(){
         if(isPost()){
             $id = (int) $this->getParam("id");
+            $type =  (int) $this->getParam("type");
             $arc = zl::dao("arc")->get(array("id"=>$id,"is_publish"=>1));
             if(!$arc) $this->showMsg("回复的主题文章不存在!");
             $content = trim($this->getParam("content"));
@@ -311,32 +326,47 @@ class site_index_controller extends zl_controller
             $data['uid'] =$user['id'];
             $data['arc_id'] =$id;
             $data['content'] = $content;
+            $data['zl_type'] = $type;
             $insertId = zl::dao("reply")->insert($data);
-            $check = zl::dao("data")->get(array("zl_key"=>"reply_count"));
-            if($check){
-                zl::dao("data")->inCrease("zl_value",array("zl_key"=>"reply_count"));
+            if(!$type){
+                $check = zl::dao("data")->get(array("zl_key"=>"reply_count"));
+                if($check){
+                    zl::dao("data")->inCrease("zl_value",array("zl_key"=>"reply_count"));
+                }else{
+                    zl::dao("data")->insert(array("zl_key"=>"reply_count","zl_value"=>1));
+                }
+                zl::dao("arc")->inCrease("reply_count",array("id"=>$id));
+                zl::dao("arc")->update(array("last_reply_uid"=>$user['id'],"last_reply_time"=>date('Y-m-d H:i:s')),array("id"=>$id));
+                $count = zl::dao("reply")->getCount(array("arc_id"=>$id,"is_publish"=>1,"zl_type"=>0));
+                $p = ceil($count/zl::$configApp['page_size']);
+
+                $redirectUrl  = "/v-".$p."-".$id."#reply_content_".$insertId;
+                //更新统计信息
+                $noticeUsers = site_user_service::service()->getAtUid($content);
+                //加上主题创建人
+                array_push($noticeUsers,$arc['uid']);
+                //剔除自己
+                $key = array_search($user['id'], $noticeUsers);
+                $noticeUsers = (array) array_unique($noticeUsers);
+                if($key !== false){
+                    unset($noticeUsers[$key]);
+                }
+
+                site_user_service::service()->sendNotice($user['id'],$content,$redirectUrl,$noticeUsers);
+                zl_hook::run("arc_reply",array("id"=>$insertId));
             }else{
-                zl::dao("data")->insert(array("zl_key"=>"reply_count","zl_value"=>1));
+                $check = zl::dao("data")->get(array("zl_key"=>"news_reply_count"));
+                if($check){
+                    zl::dao("data")->inCrease("zl_value",array("zl_key"=>"news_reply_count"));
+                }else{
+                    zl::dao("data")->insert(array("zl_key"=>"news_reply_count","zl_value"=>1));
+                }
+                zl::dao("ext_news_list")->inCrease("reply_count",array("id"=>$id));
+                zl::dao("ext_news_list")->update(array("last_reply_uid"=>$user['id'],"last_reply_time"=>date('Y-m-d H:i:s')),array("id"=>$id));
+                $count = zl::dao("reply")->getCount(array("arc_id"=>$id,"is_publish"=>1,"zl_type"=>1));
+                $p = ceil($count/zl::$configApp['page_size']);
+                $redirectUrl  = "/news/v-".$p."-".$id."#reply_content_".$insertId;
             }
-            zl::dao("arc")->inCrease("reply_count",array("id"=>$id));
-            zl::dao("arc")->update(array("last_reply_uid"=>$user['id'],"last_reply_time"=>date('Y-m-d H:i:s')),array("id"=>$id));
-            $count = zl::dao("reply")->getCount(array("arc_id"=>$id,"is_publish"=>1));
-            $p = ceil($count/zl::$configApp['page_size']);
-
-            $redirectUrl  = "/v-".$p."-".$id."#reply_content_".$insertId;
-            //更新统计信息
-            $noticeUsers = site_user_service::service()->getAtUid($content);
-            //加上主题创建人
-            array_push($noticeUsers,$arc['uid']);
-            //剔除自己
-            $key = array_search($user['id'], $noticeUsers);
-            $noticeUsers = (array) array_unique($noticeUsers);
-            if($key !== false){
-                unset($noticeUsers[$key]);
-            }
-
-            site_user_service::service()->sendNotice($user['id'],$content,$redirectUrl,$noticeUsers);
-            zl_hook::run("arc_reply",array("id"=>$insertId));
             $this->redirect($redirectUrl);
         }else{
             $this->showMsg("非法访问");
@@ -423,8 +453,10 @@ class site_index_controller extends zl_controller
         $data['zl_type'] = $set;
         if($set==2){
             $topScore = zl::dao("arc")->getField("zl_score",array("is_publish"=>1),false,"zl_score DESC");
-            $data['zl_score_base'] = $topScore+1-$arc['zl_score'];
+            $data['zl_score_base'] = number_format($topScore+1-$arc['zl_score'],2);
+            $data['zl_score'] = $topScore+1;
         }
+
         zl::dao("arc")->update($data,array("id"=>$id));
 //        dd(zl::dao("arc")->getSql());
         $this->redirect("v-1-".$id);

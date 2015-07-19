@@ -27,6 +27,8 @@ echo style("jquerytags/ui-lightness/jquery-ui-1.10.3.custom.min.css");
 echo script('nice_validator/local/zh_CN.js');
 echo style("easydialog/easydialog.css");
 echo script("easydialog/easydialog.min.js");
+echo style("totop/totop.css");
+echo script("totop/totop.js");
 echo script("js/util.js");
 ?>
 <style>

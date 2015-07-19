@@ -8,6 +8,7 @@
                         <span class="label label-success font-10">精华</span>
                     <?php endif; ?>
                 </li>
+                <li><a href="javascript:history.back();" class="glyphicon glyphicon-arrow-left" title="返回"></a></li>
             </ul>
             <div class="header">
                 <div class="fr">

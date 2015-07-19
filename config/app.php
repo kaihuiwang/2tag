@@ -10,7 +10,7 @@ return array(
     "salt" => "arwqw34453rgsdf",
     "public_path" => "public",
     "page_size"=>20,
-    "rand_job"=>0.3,
+    "rand_job"=>1,
     "super_admin"=>"admin@admin.com",
     "logger_path"=>ROOT_PATH."/data/logs",
     "db" => array(

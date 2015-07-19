@@ -588,7 +588,7 @@ function dealWithXss($html, $allow_tag = array(), $allow_tag_attr = array())
 
             //匹配出标签名 比如 a, br, html, li, script
             preg_match_all('/^<\s{0,}\/{0,}\s{0,}([\w]+)/i', $tag, $tag_name);
-            $tags[$tag_k] = array('name' => $tag_name[1][0], 'html' => $tag);
+            $tags[$tag_k] = array('name' => isset($tag_name[1][0])?$tag_name[1][0]:"", 'html' => $tag);
             if ($tag_name && in_array($tags[$tag_k]['name'], $allow_tag)) {
 
                 //匹配出含等于号的属性，注，当前版本不支持readonly等无等于号的属性

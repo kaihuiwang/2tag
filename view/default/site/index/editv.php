@@ -4,6 +4,9 @@ echo style("jquerytags/jquery.tagsinput.css");
 echo style("bootstrap-markdown/css/bootstrap-markdown.min.css");
 echo script("bootstrap-markdown/js/bootstrap-markdown.js");
 echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
+echo script("bootstrap-markdown/js/marked.min.js");
+echo script("bootstrap-markdown/js/jquery.filedrop.js");
+echo script("bootstrap-markdown/js/jquery.hotkeys.js");
 ?>
 <div class="col-md-8">
     <div class="panel panel-box">
@@ -74,7 +77,7 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
                     可以在正文中为你要发布的主题添加更多细节。本站 支持 <span style="font-family: Consolas, 'Panic Sans', mono">
                         <a href="http://wowubuntu.com/markdown/" target="_blank"  style="color: #aaa">Markdown</a></span> 文本标记语法。
                     <div class="sep10"></div>
-                    在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。
+                   在正式提交之前，你可以点击编辑器右上角的“预览”来查看 Markdown 正文的实际渲染效果。
                     <div class="sep10"></div>
                 </li>
                 <li><span class="f13" style="font-weight: bold">标签</span><div class="sep10"></div>
@@ -88,27 +91,6 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
 </div>
 <script>
     $(function(){
-        $("#content").markdown({
-            language:"zh",
-            savable:true,
-            autofocus:true,
-            resize:"both",
-            hiddenButtons:"cmdSave",
-            onPreview: function(e) {
-                var previewContent='';
-                var content = e.getContent();
-                if (content) {
-                    ajax_post("<?php echo url("parsemarkdown"); ?>",{'content':content},function(json){
-                        if(json.status==1){
-                            previewContent=json.data;
-                        }
-                    },'jsonp',false);
-                } else {
-                    previewContent = ""
-                }
-                return previewContent
-            }
-        });
         $('#tagsadd').tagsInput({
             'height':'20px', //设置高度
             'width':'100%',  //设置宽度
@@ -124,3 +106,6 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
         });
     });
 </script>
+<?php
+echo script("bootstrap-markdown/js/myeditor.js");
+?>

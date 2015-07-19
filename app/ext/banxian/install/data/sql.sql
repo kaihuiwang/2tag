@@ -364,6 +364,50 @@ CREATE TABLE `2tag_arc_digg` (
   KEY `idx_uid_arc_id` (`uid`,`arc_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
+/* Create table in target */
+DROP TABLE IF EXISTS `zl_ext_news_digg`;
+CREATE TABLE `zl_ext_news_digg`(
+	`id` int(11) NOT NULL  auto_increment ,
+	`zl_type` tinyint(1) NULL  DEFAULT 1 ,
+	`uid` int(11) NULL  ,
+	`arc_id` int(11) NULL  ,
+	`ctime` timestamp NULL  ,
+	`mtime` timestamp NULL  ,
+	PRIMARY KEY (`id`) ,
+	KEY `idx_uid_arc_id`(`uid`,`arc_id`)
+) ENGINE=InnoDB DEFAULT CHARSET='utf8' COLLATE='utf8_general_ci';
+
+
+/* Create table in target */
+DROP TABLE IF EXISTS `zl_ext_news_list`;
+CREATE TABLE `zl_ext_news_list`(
+	`id` int(11) NOT NULL  auto_increment ,
+	`title` varchar(400) COLLATE utf8_general_ci NULL  DEFAULT '0' COMMENT '标题' ,
+	`url` varchar(400) COLLATE utf8_general_ci NULL  DEFAULT '0' COMMENT '网址' ,
+	`uid` int(11) NULL  DEFAULT 0 COMMENT '添加人' ,
+	`content` text COLLATE utf8_general_ci NULL  COMMENT '正文' ,
+	`view_count` int(11) NULL  DEFAULT 0 COMMENT '查看人数' ,
+	`good_number` int(11) NULL  DEFAULT 0 COMMENT '喜欢数' ,
+	`reply_count` int(11) NULL  DEFAULT 0 COMMENT '回复数' ,
+	`is_publish` tinyint(1) NULL  DEFAULT 1 COMMENT '是否显示' ,
+	`zl_score` double NULL  DEFAULT 0 ,
+	`score_version` double NULL  DEFAULT 0 ,
+	`last_reply_uid` int(11) NULL  COMMENT '最后回复人' ,
+	`last_reply_time` timestamp NULL  ,
+	`mtime` timestamp NULL  DEFAULT CURRENT_TIMESTAMP ,
+	`ctime` timestamp NULL  ,
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET='utf8' COLLATE='utf8_general_ci';
+
+
+/* Alter table in target */
+ALTER TABLE `zl_reply`
+	ADD COLUMN `zl_type` tinyint(1)   NULL DEFAULT 0 COMMENT '0-文章,1-news' after `is_publish` ,
+	CHANGE `content` `content` text  COLLATE utf8_general_ci NULL after `zl_type` ,
+	CHANGE `ctime` `ctime` timestamp   NOT NULL DEFAULT '0000-00-00 00:00:00' after `content` ,
+	CHANGE `mtime` `mtime` timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP after `ctime` ;
+
+
 /*Data for the table `2tag_user` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

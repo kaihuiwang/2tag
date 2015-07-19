@@ -1,22 +1,4 @@
 <div class="col-md-8">
-    <div class="panel">
-        <div class="panel-heading">
-                活跃
-        </div>
-        <div class="panel-body">
-            <ul class="ul-row">
-                <?php if($hotTag):?>
-                    <?php foreach($hotTag as $v):?>
-                        <?php if($tag == $v['name']):?>
-                            <li > <a href="<?php echo url("/1-".$v['name']);?>" class=" label label-tag label-tag-active" style="color:#fff"><?php echo $v['name']; ?></a></li>
-                        <?php else: ?>
-                            <li > <a href="<?php echo url("/1-".$v['name']);?>" class=" label label-tag "><?php echo $v['name']; ?></a></li>
-                        <?php endif;?>
-                    <?php endforeach;?>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </div>
         <div class="panel">
             <div class="panel-heading">
       主题

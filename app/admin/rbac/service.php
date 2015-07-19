@@ -118,6 +118,7 @@ class admin_rbac_service extends zl_service
 
     function check(){
         $admin = admin_user_service::service()->getLogin();
+        if($admin['is_admin']) return true;
         $site = site_user_service::service()->getLogin();
         $access = array();
         if(isset($admin['access'])){
@@ -136,6 +137,7 @@ class admin_rbac_service extends zl_service
 
     function checkRight($route_name){
         $admin = admin_user_service::service()->getLogin();
+        if($admin['is_admin']) return true;
         $site = site_user_service::service()->getLogin();
         $access = array();
         if(isset($admin['access'])){

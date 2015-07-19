@@ -21,8 +21,8 @@ class site_index_service extends zl_service
         $mnumber = ceil((time()-$mtime)/$timer);
         $cnumber = ceil((time()-$ctime)/$timer);
         $number = ceil(($cnumber+$mnumber)/2);
-
-        return getVoteScore($count,$number)+$base;
+        $result = abs(getVoteScore($count,$number))+$base;
+        return $result;
     }
 
     function updateTagScore($id){
@@ -40,7 +40,7 @@ class site_index_service extends zl_service
         $check = zl::dao("arc")->get(array("id"=>$id));
         if(!$check) return ;
         $version = date('YmdH');
-        $num = ($check['good_number']-$check['bad_number'])*3;
+        $num = $check['reply_count']+$check['good_number']-$check['bad_number'];
         $score = $this->getScore($num,date('Y-m-d H:i:s'),$check['ctime'],$check['zl_score_base']);
 //        exit($score);
         zl::dao("arc")->update(array("zl_score"=>$score,"score_version"=>$version),array("id"=>$id));
@@ -64,13 +64,13 @@ class site_index_service extends zl_service
 
     function scoreJob(){
             $version = date('YmdH');
-            $arcIds = zl::dao("arc")->getField("id",array("score_version"=>array("<",$version)),true,"score_version ASC",0,10);
+            $arcIds = zl::dao("arc")->getField("id",array("score_version"=>array("<",$version),"is_publish"=>1),true,"score_version ASC",0,10);
             if($arcIds) {
                 foreach ($arcIds as $v) {
                     $this->updateArcScore($v);
                 }
             }
-            $tagIds = zl::dao("tag")->getField("id",array("score_version"=>array("<",$version)),true,"score_version ASC",0,10);
+            $tagIds = zl::dao("tag")->getField("id",array("score_version"=>array("<",$version),"is_publish"=>1),true,"score_version ASC",0,10);
             if($tagIds) {
                 foreach ($tagIds as $v) {
                     $this->updateTagScore($v);

@@ -220,7 +220,7 @@ class site_user_controller extends zl_controller
         }
         $user = zl::dao("user")->get(array("id"=>$uid));
         $arc = zl::dao("arc")->gets(array('uid'=>$uid),"ctime DESC",0,10);
-        $reply = zl::dao("reply")->gets(array('uid'=>$uid),"ctime DESC",0,10);
+        $reply = zl::dao("reply")->gets(array('uid'=>$uid,"zl_type"=>0),"ctime DESC",0,10);
         if($reply){
             foreach($reply as $k=>$v){
                 $arcTmp = zl::dao("arc")->get(array("id"=>$v['arc_id']));
@@ -246,7 +246,20 @@ class site_user_controller extends zl_controller
         $p = (int) $p;
         list($arc,$markup) = zl::dao("arc")->pager(array('uid'=>$uid,"is_publish"=>1),"ctime DESC","",$p,"/me-@p");
 
-        $reply = zl::dao("reply")->gets(array('uid'=>$uid),"ctime DESC",0,10);
+        $this->user = $user;
+        $this->arc = $arc;
+        $this->markup = $markup;
+
+        $this->title = "个人中心-创建的主题";
+        $this->display();
+    }
+
+    function myreply($p=1){
+        $this->setLayout("main");
+        $uid = $this->getUid();
+        $user = zl::dao("user")->get(array("id"=>$uid));
+        $p = (int) $p;
+        list($reply,$markup)= zl::dao("reply")->pager(array('uid'=>$uid,"zl_type"=>0),"ctime DESC","",$p,"/myreply-@p");
         if($reply){
             foreach($reply as $k=>$v){
                 $arcTmp = zl::dao("arc")->get(array("id"=>$v['arc_id']));
@@ -255,11 +268,10 @@ class site_user_controller extends zl_controller
         }
 
         $this->user = $user;
-        $this->arc = $arc;
         $this->markup = $markup;
         $this->reply = $reply;
 
-        $this->title = "个人中心";
+        $this->title = "个人中心-最近回复";
         $this->display();
     }
 

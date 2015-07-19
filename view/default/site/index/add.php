@@ -4,6 +4,9 @@ echo style("jquerytags/jquery.tagsinput.css");
 echo style("bootstrap-markdown/css/bootstrap-markdown.min.css");
 echo script("bootstrap-markdown/js/bootstrap-markdown.js");
 echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
+echo script("bootstrap-markdown/js/marked.min.js");
+echo script("bootstrap-markdown/js/jquery.filedrop.js");
+echo script("bootstrap-markdown/js/jquery.hotkeys.js");
 ?>
 <div class="col-md-8">
     <div class="panel">
@@ -29,6 +32,9 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
                 <label class="control-label">正文</label>
                 <label class="control-label" style="float:right;font-weight: normal;color: #aaa">20000字以内</label>
                 <div class="controls">
+<!--                    <div id="comment-md-preview-container">-->
+<!--                        <div class="panel panel-default md-preview margin-top-10" id="comment-md-preview"></div>-->
+<!--                    </div>-->
                     <div class="textarea">
     <textarea name="content" id="content"
               data-rule="正文:required;content;;length[~20000]" data-target="#error_msg" rows="20"  style="width: 99%;padding:10px;background-color: #fff"></textarea>
@@ -36,7 +42,6 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
                     <div id="error_msg"></div>
                 </div>
             </div>
-
             <div class="control-group" style="height: 39px;margin-bottom: 20px;">
                 <label class="control-label">标签</label>
                 <label class="control-label" style="float:right;font-weight: normal;color: #aaa">最多5个标签</label>
@@ -73,7 +78,7 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
                     可以在正文中为你要发布的主题添加更多细节。本站 支持 <span style="font-family: Consolas, 'Panic Sans', mono">
                         <a href="http://wowubuntu.com/markdown/" target="_blank" style="color: #aaa">Markdown</a></span> 文本标记语法。
                     <div class="sep10"></div>
-                    在正式提交之前，你可以点击本页面左下角的“预览”来查看 Markdown 正文的实际渲染效果。
+                    在正式提交之前，你可以点击编辑器右上角的“预览”来查看 Markdown 正文的实际渲染效果。
                     <div class="sep10"></div>
                 </li>
                 <li><span class="f13" style="font-weight: bold">标签</span><div class="sep10"></div>
@@ -87,27 +92,6 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
 </div>
 <script>
     $(function(){
-    $("#content").markdown({
-        language:"zh",
-        savable:true,
-        autofocus:true,
-        resize:"both",
-        hiddenButtons:"cmdSave",
-        onPreview: function(e) {
-            var previewContent='';
-            var content = e.getContent();
-            if (content) {
-                ajax_post("<?php echo url("parsemarkdown"); ?>",{'content':content},function(json){
-                    if(json.status==1){
-                        previewContent=json.data;
-                    }
-                },'jsonp',false);
-            } else {
-                previewContent = ""
-            }
-            return previewContent;
-        }
-    });
         $('#tagsadd').tagsInput({
             'height':'30px', //设置高度
             'width':'100%',  //设置宽度
@@ -123,3 +107,6 @@ echo script("bootstrap-markdown/locale/bootstrap-markdown.zh.js");
         });
     });
 </script>
+<?php
+echo script("bootstrap-markdown/js/myeditor.js");
+?>

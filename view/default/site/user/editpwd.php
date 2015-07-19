@@ -15,11 +15,13 @@
     </ol>
             </div></div>
     <div class="panel">
-        <div class="panel-body">
+            <div class="panel-heading">
         <ul class="nav nav-pills">
             <li role="presentation" ><a href="<?php echo url('/setting'); ?>">设置头像</a></li>
             <li role="presentation" class="disabled"><a href="javascript:;">修改密码</a></li>
         </ul>
+                </div>
+        <div class="panel-body">
         <form id="form-editpwd"  class="form-horizontal" action="<?php echo url('/editpwd'); ?>" method="post">
             <?php echo zl_form::getCsrf(); ?>
             <div class="control-group">

@@ -15,11 +15,13 @@
     </ol>
             </div></div>
     <div class="panel">
-        <div class="panel-body">
+            <div class="panel-heading">
             <ul class="nav nav-pills">
                 <li role="presentation" class="disabled"><a href="javascript:;">设置头像</a></li>
                 <li role="presentation"><a href="<?php echo url('/editpwd'); ?>">修改密码</a></li>
             </ul>
+                </div>
+        <div class="panel-body">
     <div class=" box-top-0">
         <div class="gprefix-2 gmt20">
             <form method="post" enctype="multipart/form-data" id="mfacefrm" action="<?php echo url('setting');?>">

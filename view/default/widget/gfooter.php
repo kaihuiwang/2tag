@@ -1,7 +1,7 @@
 <?php
 $footmenu = zl::dao("menu")->gets(array("zl_type"=>2),"zl_sort asc");
 ?>
-<footer  style="background: #fff; ">
+<footer >
     <div class="container">
         <div class="center" >
             <div class="sep10"></div>
@@ -41,3 +41,11 @@ zl_hook::run("footer");
 $routeName= zl::get("current_route_name");
 zl_hook::run($routeName);
 ?>
+<script type="text/javascript">
+    $(function (){
+        $(window).manhuatoTop({
+            showHeight : 100,//设置滚动高度时显示
+            speed : 500 //返回顶部的速度以毫秒为单位
+        });
+    });
+</script>

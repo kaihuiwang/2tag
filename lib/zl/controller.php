@@ -44,6 +44,11 @@ class zl_controller
         return zl::redirect($url, $code);
     }
 
+    function redirectBack(){
+        $ref = getRef(url("/"));
+        $this->redirectAll($ref);
+    }
+
     function redirectWithError($errorMsg, $url = '')
     {
         zl_session::flash_set("msg", $errorMsg);

@@ -84,7 +84,6 @@ $user = site_user_service::service()->getLogin();
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-align-justify"></i></a>
         <ul class="dropdown-menu">
-            <?php echo zl_hook::run("top_nav"); ?>
             <?php
             $topmenu = zl::dao("menu")->gets(array("zl_type"=>1),"zl_sort asc");
             if($topmenu):
@@ -102,13 +101,14 @@ $user = site_user_service::service()->getLogin();
             <li><a href="<?php  echo url('me');?>">个人中心</a></li>
             <li><a href="<?php echo url("/notice");?>">通知</a></li>
             <li><a href="<?php echo url('logout'); ?>">退出</a></li>
+            <?php echo zl_hook::run("top_nav"); ?>
+            <?php echo zl_hook::run("top_nav_after_mobile"); ?>
         </ul>
     </li>
     <?php else: ?>
     <li  class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-align-justify"></i></a>
         <ul class="dropdown-menu">
-            <?php echo zl_hook::run("top_nav"); ?>
             <?php
             $topmenu = zl::dao("menu")->gets(array("zl_type"=>1),"zl_sort asc");
             if($topmenu):
@@ -126,6 +126,7 @@ $user = site_user_service::service()->getLogin();
             <li><a href="<?php echo url("login");?>">登录</a></li>
             <li><a href="<?php echo url("register");?>">注册</a></li>
             <?php echo zl_hook::run("top_nav_after_mobile"); ?>
+            <?php echo zl_hook::run("top_nav"); ?>
         </ul>
     </li>
     <?php endif;?>
