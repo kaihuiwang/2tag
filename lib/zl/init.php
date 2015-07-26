@@ -30,11 +30,11 @@ class zl_init
         ini_set('display_errors',1);
         error_reporting(E_ALL);
         try {
+            $this->route();
             $this->hook();
             zl_hook::run("system_start");
             $this->initialize();
             $this->cache();
-            $this->route();
             zl_hook::run("system_view");
             $this->cronJob();
             zl::start();
@@ -105,11 +105,11 @@ class zl_init
         $cachePath = $this->getRoutePath();
         if (is_file($cachePath) && (!$this->isdebug())) {
             include $cachePath;
-            zl::start();
             return;
         }
         $routePhpstr = "";
         $ext = zl::config()->get("ext.names");
+
         if ($ext) {
             foreach ($ext as $v) {
                 $routeFilePath = ROOT_PATH . "/app/ext/" . $v . "/config/route.php";

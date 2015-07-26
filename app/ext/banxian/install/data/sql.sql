@@ -1,23 +1,4 @@
-/*
-SQLyog Ultimate v11.25 (64 bit)
-MySQL - 5.6.19 : Database - 2tag
-*********************************************************************
-*/
-
-
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`2tag` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `2tag`;
-
-/*Table structure for table `2tag_access` */
+/*Table structure for table `zl_access` */
 
 DROP TABLE IF EXISTS `2tag_access`;
 
@@ -28,9 +9,7 @@ CREATE TABLE `2tag_access` (
   `mtime` timestamp NULL DEFAULT NULL,
   `ctime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_access` */
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_admin_user` */
 
@@ -66,10 +45,6 @@ CREATE TABLE `2tag_admin_user` (
   KEY `pinyin` (`pinyin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
-/*Data for the table `2tag_admin_user` */
-
-insert  into `2tag_admin_user`(`id`,`email`,`pwd`,`real_name`,`pinyin`,`nickname`,`sign`,`face`,`coin`,`sex`,`email_validate`,`role`,`dept`,`mobile`,`tel`,`qq`,`skype`,`gtalk`,`join_date`,`is_admin`,`last_login_time`,`mtime`,`ctime`) values (1,'admin@admin.com','d5ac9f8f0e69efe73cd3d9a8ea70a228','管理员','guanliyuan','管理员','','0',0,0,1,0,0,'','','','','','2015-03-10',1,'2015-03-11 21:19:43','2015-03-11 21:19:43','2015-03-10 22:58:24');
-
 /*Table structure for table `2tag_arc` */
 
 DROP TABLE IF EXISTS `2tag_arc`;
@@ -95,9 +70,22 @@ CREATE TABLE `2tag_arc` (
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8;
 
-/*Data for the table `2tag_arc` */
+/*Table structure for table `2tag_arc_digg` */
+
+DROP TABLE IF EXISTS `2tag_arc_digg`;
+
+CREATE TABLE `2tag_arc_digg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zl_type` tinyint(1) DEFAULT '1',
+  `uid` int(11) DEFAULT NULL,
+  `arc_id` int(11) DEFAULT NULL,
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_uid_arc_id` (`uid`,`arc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_data` */
 
@@ -110,9 +98,7 @@ CREATE TABLE `2tag_data` (
   `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_data` */
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_dept` */
 
@@ -127,8 +113,6 @@ CREATE TABLE `2tag_dept` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `2tag_dept` */
-
 /*Table structure for table `2tag_email_token` */
 
 DROP TABLE IF EXISTS `2tag_email_token`;
@@ -142,9 +126,111 @@ CREATE TABLE `2tag_email_token` (
   `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
-/*Data for the table `2tag_email_token` */
+/*Table structure for table `2tag_ext_backup` */
+
+DROP TABLE IF EXISTS `2tag_ext_backup`;
+
+CREATE TABLE `2tag_ext_backup` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `title` varchar(50) NOT NULL,
+  `path` varchar(100) NOT NULL,
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Table structure for table `2tag_ext_favorite` */
+
+DROP TABLE IF EXISTS `2tag_ext_favorite`;
+
+CREATE TABLE `2tag_ext_favorite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `arc_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `2tag_ext_news_digg` */
+
+DROP TABLE IF EXISTS `2tag_ext_news_digg`;
+
+CREATE TABLE `2tag_ext_news_digg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zl_type` tinyint(1) DEFAULT '1',
+  `uid` int(11) DEFAULT NULL,
+  `arc_id` int(11) DEFAULT NULL,
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_uid_arc_id` (`uid`,`arc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `2tag_ext_news_list` */
+
+DROP TABLE IF EXISTS `2tag_ext_news_list`;
+
+CREATE TABLE `2tag_ext_news_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(400) DEFAULT '0' COMMENT '标题',
+  `url` varchar(400) DEFAULT '0' COMMENT '网址',
+  `uid` int(11) DEFAULT '0' COMMENT '添加人',
+  `content` text COMMENT '正文',
+  `view_count` int(11) DEFAULT '0' COMMENT '查看人数',
+  `good_number` int(11) DEFAULT '0' COMMENT '喜欢数',
+  `reply_count` int(11) DEFAULT '0' COMMENT '回复数',
+  `is_publish` tinyint(1) DEFAULT '1' COMMENT '是否显示',
+  `zl_score` double DEFAULT '0',
+  `score_version` double DEFAULT '0',
+  `last_reply_uid` int(11) DEFAULT NULL COMMENT '最后回复人',
+  `last_reply_time` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `ctime` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `2tag_ext_qqlogin` */
+
+DROP TABLE IF EXISTS `2tag_ext_qqlogin`;
+
+CREATE TABLE `2tag_ext_qqlogin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) DEFAULT NULL,
+  `obj_id` varchar(200) DEFAULT NULL,
+  `ctime` timestamp NULL DEFAULT NULL,
+  `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `2tag_ext_zhuanti` */
+
+DROP TABLE IF EXISTS `2tag_ext_zhuanti`;
+
+CREATE TABLE `2tag_ext_zhuanti` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `2tag_ext_zhuanti_ext` */
+
+DROP TABLE IF EXISTS `2tag_ext_zhuanti_ext`;
+
+CREATE TABLE `2tag_ext_zhuanti_ext` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zhuanti_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_linked_user` */
 
@@ -160,8 +246,6 @@ CREATE TABLE `2tag_linked_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `2tag_linked_user` */
-
 /*Table structure for table `2tag_menu` */
 
 DROP TABLE IF EXISTS `2tag_menu`;
@@ -175,9 +259,7 @@ CREATE TABLE `2tag_menu` (
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-
-/*Data for the table `2tag_menu` */
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf16;
 
 /*Table structure for table `2tag_msg_data` */
 
@@ -199,9 +281,7 @@ CREATE TABLE `2tag_msg_data` (
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`),
   KEY `receive_uid` (`receive_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_msg_data` */
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_msg_notice` */
 
@@ -215,9 +295,7 @@ CREATE TABLE `2tag_msg_notice` (
   `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_msg_notice` */
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_msg_notice_read_log` */
 
@@ -232,9 +310,7 @@ CREATE TABLE `2tag_msg_notice_read_log` (
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_msg_notice_read_log` */
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_notice` */
 
@@ -249,9 +325,7 @@ CREATE TABLE `2tag_notice` (
   `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_notice` */
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_reply` */
 
@@ -262,14 +336,13 @@ CREATE TABLE `2tag_reply` (
   `uid` int(11) DEFAULT NULL,
   `arc_id` int(11) NOT NULL DEFAULT '0',
   `is_publish` int(11) NOT NULL DEFAULT '1',
+  `zl_type` tinyint(1) DEFAULT '0' COMMENT '0-文章,1-news',
   `content` text,
   `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_reply` */
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_role` */
 
@@ -281,9 +354,7 @@ CREATE TABLE `2tag_role` (
   `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_role` */
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_tag` */
 
@@ -303,9 +374,7 @@ CREATE TABLE `2tag_tag` (
   `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `zl_score` (`zl_score`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_tag` */
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_tag_ext` */
 
@@ -321,9 +390,7 @@ CREATE TABLE `2tag_tag_ext` (
   PRIMARY KEY (`id`),
   KEY `arc_id` (`arc_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `2tag_tag_ext` */
+) ENGINE=InnoDB AUTO_INCREMENT=808 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `2tag_user` */
 
@@ -350,65 +417,7 @@ CREATE TABLE `2tag_user` (
   KEY `nickname` (`nickname`),
   KEY `email` (`email`),
   KEY `pinyin` (`pinyin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
-
-DROP TABLE IF EXISTS `2tag_arc_digg`;
-CREATE TABLE `2tag_arc_digg` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `zl_type` TINYINT(1) DEFAULT '1',
-  `uid` INT(11) DEFAULT NULL,
-  `arc_id` INT(11) DEFAULT NULL,
-  `ctime` TIMESTAMP NULL DEFAULT NULL,
-  `mtime` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idx_uid_arc_id` (`uid`,`arc_id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8;
-
-/* Create table in target */
-DROP TABLE IF EXISTS `2tag_ext_news_digg`;
-CREATE TABLE `2tag_ext_news_digg`(
-	`id` int(11) NOT NULL  auto_increment ,
-	`zl_type` tinyint(1) NULL  DEFAULT 1 ,
-	`uid` int(11) NULL  ,
-	`arc_id` int(11) NULL  ,
-	`ctime` timestamp NULL  ,
-	`mtime` timestamp NULL  ,
-	PRIMARY KEY (`id`) ,
-	KEY `idx_uid_arc_id`(`uid`,`arc_id`)
-) ENGINE=InnoDB DEFAULT CHARSET='utf8' COLLATE='utf8_general_ci';
-
-
-/* Create table in target */
-DROP TABLE IF EXISTS `2tag_ext_news_list`;
-CREATE TABLE `2tag_ext_news_list`(
-	`id` int(11) NOT NULL  auto_increment ,
-	`title` varchar(400) COLLATE utf8_general_ci NULL  DEFAULT '0' COMMENT '标题' ,
-	`url` varchar(400) COLLATE utf8_general_ci NULL  DEFAULT '0' COMMENT '网址' ,
-	`uid` int(11) NULL  DEFAULT 0 COMMENT '添加人' ,
-	`content` text COLLATE utf8_general_ci NULL  COMMENT '正文' ,
-	`view_count` int(11) NULL  DEFAULT 0 COMMENT '查看人数' ,
-	`good_number` int(11) NULL  DEFAULT 0 COMMENT '喜欢数' ,
-	`reply_count` int(11) NULL  DEFAULT 0 COMMENT '回复数' ,
-	`is_publish` tinyint(1) NULL  DEFAULT 1 COMMENT '是否显示' ,
-	`zl_score` double NULL  DEFAULT 0 ,
-	`score_version` double NULL  DEFAULT 0 ,
-	`last_reply_uid` int(11) NULL  COMMENT '最后回复人' ,
-	`last_reply_time` timestamp NULL  ,
-	`mtime` timestamp NULL  DEFAULT CURRENT_TIMESTAMP ,
-	`ctime` timestamp NULL  ,
-	PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET='utf8' COLLATE='utf8_general_ci';
-
-
-/* Alter table in target */
-ALTER TABLE `2tag_reply`
-	ADD COLUMN `zl_type` tinyint(1)   NULL DEFAULT 0 COMMENT '0-文章,1-news' after `is_publish` ,
-	CHANGE `content` `content` text  COLLATE utf8_general_ci NULL after `zl_type` ,
-	CHANGE `ctime` `ctime` timestamp   NOT NULL DEFAULT '0000-00-00 00:00:00' after `content` ,
-	CHANGE `mtime` `mtime` timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP after `ctime` ;
-
-
-/*Data for the table `2tag_user` */
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

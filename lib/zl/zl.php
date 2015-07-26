@@ -63,4 +63,9 @@ class zl extends Flight
         self::render("msg", array("type" => $type, "msg" => $msg, "redirect" => $redirect, "isJs" => $isJs));
         exit;
     }
+
+    static function redirect($url){
+        header("LOCATION:".$url);
+        exit;
+    }
 }
