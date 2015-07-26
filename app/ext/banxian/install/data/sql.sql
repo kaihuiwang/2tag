@@ -365,8 +365,8 @@ CREATE TABLE `2tag_arc_digg` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 /* Create table in target */
-DROP TABLE IF EXISTS `zl_ext_news_digg`;
-CREATE TABLE `zl_ext_news_digg`(
+DROP TABLE IF EXISTS `2tag_ext_news_digg`;
+CREATE TABLE `2tag_ext_news_digg`(
 	`id` int(11) NOT NULL  auto_increment ,
 	`zl_type` tinyint(1) NULL  DEFAULT 1 ,
 	`uid` int(11) NULL  ,
@@ -379,8 +379,8 @@ CREATE TABLE `zl_ext_news_digg`(
 
 
 /* Create table in target */
-DROP TABLE IF EXISTS `zl_ext_news_list`;
-CREATE TABLE `zl_ext_news_list`(
+DROP TABLE IF EXISTS `2tag_ext_news_list`;
+CREATE TABLE `2tag_ext_news_list`(
 	`id` int(11) NOT NULL  auto_increment ,
 	`title` varchar(400) COLLATE utf8_general_ci NULL  DEFAULT '0' COMMENT '标题' ,
 	`url` varchar(400) COLLATE utf8_general_ci NULL  DEFAULT '0' COMMENT '网址' ,
@@ -401,7 +401,7 @@ CREATE TABLE `zl_ext_news_list`(
 
 
 /* Alter table in target */
-ALTER TABLE `zl_reply`
+ALTER TABLE `2tag_reply`
 	ADD COLUMN `zl_type` tinyint(1)   NULL DEFAULT 0 COMMENT '0-文章,1-news' after `is_publish` ,
 	CHANGE `content` `content` text  COLLATE utf8_general_ci NULL after `zl_type` ,
 	CHANGE `ctime` `ctime` timestamp   NOT NULL DEFAULT '0000-00-00 00:00:00' after `content` ,
