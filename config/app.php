@@ -1,6 +1,6 @@
 <?php
 return array(
-    "debug" => false,
+    "debug" => true,
     "namespaces" => array('zl'),
     "apps" => array( 'site', 'ext',"admin"),
     'siteHalt' => false,//网站维护

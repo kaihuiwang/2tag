@@ -38,7 +38,7 @@ CREATE TABLE `2tag_admin_user` (
   `is_admin` tinyint(1) DEFAULT '0' COMMENT '1-是管理',
   `last_login_time` timestamp NULL DEFAULT NULL COMMENT '最后登录时间',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL ,
   PRIMARY KEY (`id`),
   KEY `nickname` (`nickname`),
   KEY `email` (`email`),
@@ -65,8 +65,8 @@ CREATE TABLE `2tag_arc` (
   `zl_score_base` double DEFAULT '0',
   `score_version` int(11) DEFAULT '0' COMMENT 'score版本',
   `last_reply_uid` int(11) DEFAULT NULL COMMENT '最后回复人',
-  `last_reply_time` timestamp NULL DEFAULT '0000-00-00 00:00:00' COMMENT '最后回复时间',
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_reply_time` timestamp NULL DEFAULT NULL COMMENT '最后回复时间',
+  `ctime` timestamp NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
@@ -81,7 +81,7 @@ CREATE TABLE `2tag_arc_digg` (
   `zl_type` tinyint(1) DEFAULT '1',
   `uid` int(11) DEFAULT NULL,
   `arc_id` int(11) DEFAULT NULL,
-  `ctime` timestamp NULL DEFAULT NULL,
+  `ctime` timestamp NULL ,
   `mtime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_uid_arc_id` (`uid`,`arc_id`)
@@ -95,7 +95,7 @@ CREATE TABLE `2tag_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `zl_key` varchar(20) DEFAULT NULL,
   `zl_value` varchar(20) DEFAULT NULL,
-  `ctime` timestamp NULL DEFAULT NULL,
+  `ctime` timestamp NULL,
   `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
@@ -108,7 +108,7 @@ CREATE TABLE `2tag_dept` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `pid` int(11) DEFAULT '0',
-  `ctime` timestamp NULL DEFAULT NULL,
+  `ctime` timestamp NULL ,
   `mtime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -123,8 +123,8 @@ CREATE TABLE `2tag_email_token` (
   `token` varchar(60) DEFAULT NULL,
   `zl_status` tinyint(1) DEFAULT '1',
   `zl_type` tinyint(1) DEFAULT '1' COMMENT '1-邮箱验证，2-找回密码',
-  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
-  `mtime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL,
+  `mtime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
@@ -137,7 +137,7 @@ CREATE TABLE `2tag_ext_backup` (
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `title` varchar(50) NOT NULL,
   `path` varchar(100) NOT NULL,
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp  NULL ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -150,7 +150,7 @@ CREATE TABLE `2tag_ext_favorite` (
   `arc_id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
@@ -214,7 +214,7 @@ CREATE TABLE `2tag_ext_zhuanti` (
   `name` varchar(200) NOT NULL,
   `uid` int(11) NOT NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
@@ -228,7 +228,7 @@ CREATE TABLE `2tag_ext_zhuanti_ext` (
   `tag_id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `mtime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `mtime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
@@ -257,7 +257,7 @@ CREATE TABLE `2tag_menu` (
   `zl_type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1-底部导航  2-顶部导航',
   `zl_sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf16;
 
@@ -276,7 +276,7 @@ CREATE TABLE `2tag_msg_data` (
   `send_status` tinyint(1) NOT NULL DEFAULT '1',
   `receve_status` tinyint(1) NOT NULL DEFAULT '1',
   `msg_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1为系统信息，0为普通信息',
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`),
@@ -292,7 +292,7 @@ CREATE TABLE `2tag_msg_notice` (
   `feed_content` text NOT NULL,
   `url` varchar(400) NOT NULL DEFAULT '0',
   `zl_type` tinyint(1) DEFAULT '1' COMMENT '1-notice 2-msg',
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
@@ -306,7 +306,7 @@ CREATE TABLE `2tag_msg_notice_read_log` (
   `notice_id` int(11) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
   `is_read` tinyint(1) NOT NULL DEFAULT '0',
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
@@ -338,7 +338,7 @@ CREATE TABLE `2tag_reply` (
   `is_publish` int(11) NOT NULL DEFAULT '1',
   `zl_type` tinyint(1) DEFAULT '0' COMMENT '0-文章,1-news',
   `content` text,
-  `ctime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
@@ -371,7 +371,7 @@ CREATE TABLE `2tag_tag` (
   `zl_score` float DEFAULT NULL COMMENT '当前标签分数',
   `uid` int(11) DEFAULT NULL COMMENT '第一次创建人',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `zl_score` (`zl_score`)
 ) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8;
@@ -385,7 +385,7 @@ CREATE TABLE `2tag_tag_ext` (
   `name` varchar(100) DEFAULT NULL,
   `arc_id` int(11) NOT NULL DEFAULT '0',
   `is_publish` tinyint(1) DEFAULT '1',
-  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `arc_id` (`arc_id`),
@@ -410,7 +410,7 @@ CREATE TABLE `2tag_user` (
   `last_login_time` timestamp NULL DEFAULT NULL COMMENT '最后登录时间',
   `level` int(11) DEFAULT '0' COMMENT '会员等级',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ctime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ctime` timestamp NULL DEFAULT NULL,
   `arc_number` int(11) DEFAULT '0' COMMENT '文章数量',
   `reply_number` int(11) DEFAULT '0' COMMENT '回复数量',
   PRIMARY KEY (`id`),
@@ -419,7 +419,3 @@ CREATE TABLE `2tag_user` (
   KEY `pinyin` (`pinyin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

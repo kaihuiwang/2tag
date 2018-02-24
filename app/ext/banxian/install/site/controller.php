@@ -22,7 +22,6 @@ class ext_banxian_install_site_controller extends zl_ext_controller
     }
 
     function config(){
-        error_reporting(0);
         set_time_limit(0);
         $this->dbHost = "";
         $this->dbPort = "";
@@ -72,7 +71,7 @@ class ext_banxian_install_site_controller extends zl_ext_controller
             }
 
             if(!zl_tool_error::lastError()){
-                ext_banxian_install_site_service::service()->checkDbConn($dbHost, $dbPort, $dbUser, $dbPwd, $dbName);
+//                ext_banxian_install_site_service::service()->checkDbConn($dbHost, $dbPort, $dbUser, $dbPwd, $dbName);
                 if(!zl_tool_error::lastError()){
                     ext_banxian_install_site_service::service()->install($dbHost,$dbPort,$dbUser,$dbPwd,$dbPre,$dbName,$admin,$adminPwd);
                 }

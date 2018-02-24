@@ -1,0 +1,36 @@
+server {
+    listen       80;
+    server_name  2tag.cn;
+    root       /Users/work/code/php/2tag;
+ 
+    access_log  /usr/local/etc/nginx/logs/2tag.access.log ;
+	error_log   /usr/local/etc/nginx/logs/2tag.error.log;
+
+ 
+    location / {
+    if (!-e $request_filename) {
+       rewrite  ^/(.*)$  /index.php/$1  last;
+       break;
+    }
+
+    }
+	
+
+    location ~ \.php(/|$) {
+      index index.php index.html index.htm;
+      fastcgi_pass   127.0.0.1:9000;
+      fastcgi_index  index.php;
+      include        fastcgi_params;
+    	fastcgi_param  PHP_VALUE  "open_basedir=$document_root:/tmp/:/var/tmp/";
+        set $fastcgi_script_name2 $fastcgi_script_name;
+        if ($fastcgi_script_name ~ "^(.+\.php)(/.+)$") {
+            set $fastcgi_script_name2 $1;
+            set $path_info $2;
+        }
+        fastcgi_param   PATH_INFO $path_info;
+        fastcgi_param   SCRIPT_FILENAME   $document_root$fastcgi_script_name2;
+        fastcgi_param   SCRIPT_NAME   $fastcgi_script_name2;
+      
+    }
+	  
+}
